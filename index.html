@@ -66,23 +66,30 @@
     <nav class="fixed w-full z-50 transition-all duration-300 bg-darker/90 backdrop-blur-md border-b border-white/5" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-300 hover:text-white text-2xl z-50">
-                <i class="fas fa-bars"></i>
-            </button>
+            <!-- Mobile Menu Button & Lang Toggle -->
+            <div class="flex items-center gap-4 md:hidden z-50">
+                <button class="text-gray-300 hover:text-white text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <button onclick="toggleLang()" class="border border-white/30 text-white text-xs font-bold px-2 py-1 rounded hover:border-accent transition-colors lang-btn">TH / EN</button>
+            </div>
 
             <!-- Links (Left Side) -->
             <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase items-center">
-                <a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
-                <a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
-                <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
-                <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                <a href="#services" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_services">Services</a>
+                <a href="#pricing" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_pricing">Pricing</a>
+                <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_portfolio">Portfolio</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_contact">Contact</a>
                 <a href="https://www.instagram.com/zomebxyz/" target="_blank" class="text-accent hover:text-white transition-colors text-xl ml-4" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
+                <!-- Desktop Language Toggle -->
+                <button onclick="toggleLang()" class="ml-4 border border-white/30 text-gray-300 hover:text-white hover:border-accent text-xs font-bold px-3 py-1 rounded transition-colors lang-btn">
+                    TH / EN
+                </button>
             </div>
             
-            <!-- Logo (Right Side, Increased Size) -->
+            <!-- Logo (Right Side) -->
             <a href="#" class="flex items-center ml-auto md:ml-0">
                 <img src="ZOMEBXYZ logo z.png" alt="ZOMEBXYZ Logo" class="h-16 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(225,29,72,0.6)]">
             </a>
@@ -93,23 +100,23 @@
     <section class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
             <div class="max-w-3xl">
-                <p class="font-script text-4xl md:text-5xl lg:text-6xl text-white transform -rotate-2 mb-6 opacity-90 drop-shadow-lg">
+                <p class="font-script text-4xl md:text-5xl lg:text-6xl text-white transform -rotate-2 mb-6 opacity-90 drop-shadow-lg" data-i18n="hero_slogan">
                     Good Shot <br>
                     <span class="text-accent ml-8">Better Story</span>
                 </p>
                 <h1 class="font-heading font-bold text-5xl md:text-7xl lg:text-8xl text-white uppercase leading-none mb-4 tracking-tighter">
-                    Freelance <br>
-                    <span class="text-transparent" style="-webkit-text-stroke: 2px #fff;">Videographer</span> <br>
-                    <span class="text-accent">& Editor</span>
+                    <span data-i18n="hero_title_1">Freelance</span> <br>
+                    <span class="text-transparent" style="-webkit-text-stroke: 2px #fff;" data-i18n="hero_title_2">Videographer</span> <br>
+                    <span class="text-accent" data-i18n="hero_title_3">& Editor</span>
                 </h1>
-                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-10 font-light">
+                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-10 font-light" data-i18n="hero_desc">
                     Transforming raw moments into cinematic masterpieces. Specializing in automotive, lifestyle, and high-impact social media content.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#portfolio" class="bg-white text-dark font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-gray-200 transition-colors">
+                    <a href="#portfolio" class="bg-white text-dark font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-gray-200 transition-colors" data-i18n="hero_btn_work">
                         View Work
                     </a>
-                    <a href="#pricing" class="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-accent hover:text-accent transition-colors">
+                    <a href="#pricing" class="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-accent hover:text-accent transition-colors" data-i18n="hero_btn_package">
                         Packages
                     </a>
                 </div>
@@ -120,7 +127,7 @@
     <section id="services" class="py-24 bg-dark">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16">
-                <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2">My <span class="text-accent">Services</span></h2>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2"><span data-i18n="srv_title_1">My</span> <span class="text-accent" data-i18n="srv_title_2">Services</span></h2>
                 <div class="w-20 h-1 bg-accent"></div>
             </div>
 
@@ -130,16 +137,16 @@
                     <div class="w-16 h-16 bg-darker rounded-full flex items-center justify-center text-accent text-3xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3 class="font-heading font-bold text-2xl uppercase tracking-widest text-white mb-4">Video Shooting</h3>
-                    <p class="text-gray-400 mb-6 font-light leading-relaxed">
+                    <h3 class="font-heading font-bold text-2xl uppercase tracking-widest text-white mb-4" data-i18n="srv_shoot_title">Video Shooting</h3>
+                    <p class="text-gray-400 mb-6 font-light leading-relaxed" data-i18n="srv_shoot_desc">
                         Professional on-location shooting for events, vehicles, products, and general content. High-quality footage that captures the essence of your brand.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-500 mb-8 font-light">
-                        <li><i class="fas fa-check text-accent mr-2"></i> Events & Weddings</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Commercials & Products</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> 4K High-Resolution Capture</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i> <span data-i18n="srv_shoot_1">Events & Weddings</span></li>
+                        <li><i class="fas fa-check text-accent mr-2"></i> <span data-i18n="srv_shoot_2">Commercials & Products</span></li>
+                        <li><i class="fas fa-check text-accent mr-2"></i> <span data-i18n="srv_shoot_3">4K High-Resolution Capture</span></li>
                     </ul>
-                    <p class="font-heading text-xl text-white tracking-wider">Starts at <span class="text-accent font-bold">3,000 THB</span></p>
+                    <p class="font-heading text-xl text-white tracking-wider"><span data-i18n="start_at">Starts at</span> <span class="text-accent font-bold">3,000 THB</span></p>
                 </div>
 
                 <!-- Editing Service -->
@@ -147,16 +154,16 @@
                     <div class="w-16 h-16 bg-darker rounded-full flex items-center justify-center text-accent text-3xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fas fa-film"></i>
                     </div>
-                    <h3 class="font-heading font-bold text-2xl uppercase tracking-widest text-white mb-4">Video Editing</h3>
-                    <p class="text-gray-400 mb-6 font-light leading-relaxed">
+                    <h3 class="font-heading font-bold text-2xl uppercase tracking-widest text-white mb-4" data-i18n="srv_edit_title">Video Editing</h3>
+                    <p class="text-gray-400 mb-6 font-light leading-relaxed" data-i18n="srv_edit_desc">
                         Fast-paced, cinematic, and engaging edits for short-form content (Reels, TikTok) and long-form YouTube videos. Color grading and sound design included.
                     </p>
                     <ul class="space-y-2 text-sm text-gray-500 mb-8 font-light">
-                        <li><i class="fas fa-check text-accent mr-2"></i> Reels / TikTok / Shorts</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Color Grading & SFX</li>
-                        <li><i class="fas fa-check text-accent mr-2"></i> Dynamic Transitions</li>
+                        <li><i class="fas fa-check text-accent mr-2"></i> <span data-i18n="srv_edit_1">Reels / TikTok / Shorts</span></li>
+                        <li><i class="fas fa-check text-accent mr-2"></i> <span data-i18n="srv_edit_2">Color Grading & SFX</span></li>
+                        <li><i class="fas fa-check text-accent mr-2"></i> <span data-i18n="srv_edit_3">Dynamic Transitions</span></li>
                     </ul>
-                    <p class="font-heading text-xl text-white tracking-wider">Starts at <span class="text-accent font-bold">400 THB</span> <span class="text-sm text-gray-500">/ clip</span></p>
+                    <p class="font-heading text-xl text-white tracking-wider"><span data-i18n="start_at_edit">Starts at</span> <span class="text-accent font-bold">400 THB</span> <span class="text-sm text-gray-500" data-i18n="per_clip">/ clip</span></p>
                 </div>
             </div>
         </div>
@@ -165,56 +172,57 @@
     <section id="pricing" class="py-24 bg-darker">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16 text-center">
-                <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2">Package <span class="text-accent">Rates</span></h2>
-                <p class="text-gray-400 max-w-2xl mx-auto">Transparent pricing for high-quality production. Choose the package that fits your project's scale.</p>
+                <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2"><span data-i18n="pkg_title_1">Package</span> <span class="text-accent" data-i18n="pkg_title_2">Rates</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto" data-i18n="pkg_desc">Transparent pricing for high-quality production. Choose the package that fits your project's scale.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Basic -->
                 <div class="bg-card border border-white/5 p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
                     <div class="mb-8">
-                        <h3 class="font-heading text-xl uppercase tracking-widest text-gray-400 mb-2">Basic</h3>
+                        <h3 class="font-heading text-xl uppercase tracking-widest text-gray-400 mb-2" data-i18n="basic_title">Basic</h3>
                         <div class="font-heading text-4xl font-bold text-white mb-1">3,000 <span class="text-lg text-gray-500 font-normal">THB</span></div>
-                        <p class="text-sm text-gray-500">Quick & straightforward shoots</p>
+                        <p class="text-sm text-gray-500" data-i18n="basic_desc">Quick & straightforward shoots</p>
                     </div>
                     <ul class="flex-grow space-y-4 text-gray-300 text-sm font-light mb-8">
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1-2 Hours of Shooting</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1 Location</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1 Vertical Clip</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Basic Editing & Color Grading</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="b1">1-2 Hours of Shooting</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="b2">1 Location</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="b3">1 Vertical Clip</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="b4">Basic Editing & Color Grading</span></li>
                     </ul>
                 </div>
 
                 <!-- Standard -->
                 <div class="bg-card border border-accent p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(225,29,72,0.1)]">
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 text-xs font-bold uppercase tracking-widest">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 text-xs font-bold uppercase tracking-widest" data-i18n="most_popular">
                         Most Popular
                     </div>
                     <div class="mb-8 mt-2">
-                        <h3 class="font-heading text-xl uppercase tracking-widest text-accent mb-2">Standard</h3>
+                        <h3 class="font-heading text-xl uppercase tracking-widest text-accent mb-2" data-i18n="std_title">Standard</h3>
                         <div class="font-heading text-4xl font-bold text-white mb-1">5,000 - 7,000 <span class="text-lg text-gray-500 font-normal">THB</span></div>
-                        <p class="text-sm text-gray-500">Standard commercial quality</p>
+                        <p class="text-sm text-gray-500" data-i18n="std_desc">Standard commercial quality</p>
                     </div>
                     <ul class="flex-grow space-y-4 text-gray-200 text-sm font-light mb-8">
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 2-4 Hours of Shooting</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1-2 Locations</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Multiple Video Versions</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Editing + Sound + Color Grading</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="s1">2-4 Hours of Shooting</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="s2">1-2 Locations</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="s3">Multiple Video Versions</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="s4">Editing + Sound + Color Grading</span></li>
                     </ul>
                 </div>
 
                 <!-- Premium -->
                 <div class="bg-card border border-white/5 p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
                     <div class="mb-8">
-                        <h3 class="font-heading text-xl uppercase tracking-widest text-gray-400 mb-2">Premium</h3>
+                        <h3 class="font-heading text-xl uppercase tracking-widest text-gray-400 mb-2" data-i18n="prm_title">Premium</h3>
                         <div class="font-heading text-4xl font-bold text-white mb-1">10,000 - 15,000 <span class="text-lg text-gray-500 font-normal">THB</span></div>
-                        <p class="text-sm text-gray-500">Full cinematic production</p>
+                        <p class="text-sm text-gray-500" data-i18n="prm_desc">Full cinematic production</p>
                     </div>
                     <ul class="flex-grow space-y-4 text-gray-300 text-sm font-light mb-8">
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Concept & Storyboard Planning</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 4-8 Hours of Shooting</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Cinematic Editing & Advanced Color</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Main Video + Sub-clips</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="p1">Concept & Storyboard Planning</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="p2">4-8 Hours of Shooting</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="p3">Detail & Dynamic Movement Shots</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="p4">Cinematic Editing & Advanced Color</span></li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> <span data-i18n="p5">Main Video + Sub-clips</span></li>
                     </ul>
                 </div>
             </div>
@@ -225,7 +233,7 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-12 flex justify-between items-end">
                 <div>
-                    <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2">Latest <span class="text-accent">Work</span></h2>
+                    <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2"><span data-i18n="port_title_1">Latest</span> <span class="text-accent" data-i18n="port_title_2">Work</span></h2>
                     <div class="w-20 h-1 bg-accent"></div>
                 </div>
             </div>
@@ -233,27 +241,23 @@
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 
-                <!-- Item 1: Your Photo 1 -->
                 <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
                     <img src="731442646_1663163408268365_5469560214043133227_n.jpg" alt="Automotive Work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Automotive</span>
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1" data-i18n="cat_auto">Automotive</span>
                         <h4 class="text-white font-heading text-xl uppercase tracking-wider">CBR650R Rider</h4>
                     </div>
                 </div>
                 
-                <!-- Item 2: Your Photo 2 -->
                 <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
                     <img src="590430512_18549629476000368_6008239310787326326_n.jpg" alt="Lifestyle Work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Lifestyle</span>
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1" data-i18n="cat_life">Lifestyle</span>
                         <h4 class="text-white font-heading text-xl uppercase tracking-wider">DON'T BE DUMB</h4>
                     </div>
                 </div>
 
-                <!-- Item 3: Video Placeholder 1 -->
                 <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
-                    <!-- วิธีเพิ่มวีดีโอ: นำไฟล์ .mp4 มาใส่ในโฟลเดอร์เดียวกัน แล้วแก้ src ด้านล่างนี้ -->
                     <video class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" autoplay loop muted playsinline>
                         <!-- <source src="your-video-file-1.mp4" type="video/mp4"> -->
                     </video>
@@ -261,25 +265,8 @@
                         <i class="fas fa-play-circle text-4xl text-white/50 group-hover:text-accent transition-colors"></i>
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Video Edit</span>
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1" data-i18n="cat_edit">Video Edit</span>
                         <h4 class="text-white font-heading text-xl uppercase tracking-wider">Cinematic Reel 01</h4>
-                    </div>
-                </div>
-
-                <!-- Item 4: Video Placeholder 2 -->
-                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer md:col-span-2 lg:col-span-3">
-                    <!-- วิธีเพิ่มวีดีโอแนวนอนขนาดใหญ่: แก้ไข src ด้านล่างนี้ -->
-                    <video class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" autoplay loop muted playsinline>
-                        <!-- <source src="your-main-video-file.mp4" type="video/mp4"> -->
-                    </video>
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                        <div class="w-20 h-20 rounded-full bg-black/50 border-2 border-white/50 flex items-center justify-center backdrop-blur-sm group-hover:border-accent group-hover:bg-accent/20 transition-all duration-300">
-                            <i class="fas fa-play text-2xl text-white ml-2"></i>
-                        </div>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                        <span class="text-accent text-sm font-bold uppercase tracking-widest mb-2">Main Showcase</span>
-                        <h4 class="text-white font-heading text-3xl uppercase tracking-wider">ZOMEBXYZ DIRECTORS CUT</h4>
                     </div>
                 </div>
 
@@ -294,9 +281,9 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="font-script text-4xl md:text-5xl text-white mb-4 drop-shadow-md">
-                        Let's Create <br> <span class="text-accent">Something Great</span>
+                        <span data-i18n="ft_title_1">Let's Create</span> <br> <span class="text-accent" data-i18n="ft_title_2">Something Great</span>
                     </h2>
-                    <p class="text-gray-400 mb-8 font-light max-w-md">
+                    <p class="text-gray-400 mb-8 font-light max-w-md" data-i18n="ft_desc">
                         Ready to elevate your visuals? Drop a message for inquiries, custom quotes, or just to say hi. Small project or big impact, I'm ready to shoot.
                     </p>
                     
@@ -306,7 +293,7 @@
                                 <i class="fab fa-instagram text-xl"></i>
                             </div>
                             <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest">DM Me</p>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="ft_dm">DM Me</p>
                                 <p class="text-white font-medium">@zomebxyz</p>
                             </div>
                         </div>
@@ -315,7 +302,7 @@
                                 <i class="fas fa-phone-alt"></i>
                             </div>
                             <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest">Call</p>
+                                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="ft_call">Call</p>
                                 <p class="text-white font-medium">065-274-6176</p>
                             </div>
                         </div>
@@ -332,16 +319,16 @@
                 </div>
 
                 <div class="bg-card p-8 border border-white/5 relative flex flex-col items-center justify-center text-center shadow-[0_0_20px_rgba(225,29,72,0.05)]">
-                    <h3 class="font-heading text-2xl text-white mb-6 uppercase tracking-wider">Scan to Contact</h3>
+                    <h3 class="font-heading text-2xl text-white mb-6 uppercase tracking-wider" data-i18n="ft_scan_title">Scan to Contact</h3>
                     <div class="bg-white p-2 rounded-xl inline-block mb-4 transition-transform hover:scale-105 duration-300">
                         <img src="S__7364610.jpg" alt="LINE QR Code" class="w-48 h-48 md:w-56 md:h-56 object-cover rounded-lg">
                     </div>
-                    <p class="text-gray-400 font-light text-sm">Scan the QR code to chat directly via LINE</p>
+                    <p class="text-gray-400 font-light text-sm" data-i18n="ft_scan_desc">Scan the QR code to chat directly via LINE</p>
                 </div>
             </div>
             
             <div class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-                <p>&copy; 2026 ZOMEBXYZ. All rights reserved.</p>
+                <p>&copy; 2026 ZOMEBXYZ. <span data-i18n="ft_rights">All rights reserved.</span></p>
                 <div class="flex space-x-4 mt-4 md:mt-0 font-heading uppercase tracking-widest">
                     <a href="https://www.instagram.com/zomebxyz/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
                     <a href="https://www.youtube.com/@somebxyz" target="_blank" class="hover:text-white transition-colors">YouTube</a>
@@ -352,7 +339,7 @@
     </footer>
 
     <script>
-        // Navbar blur effect on scroll
+        // Navbar blur effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -362,6 +349,103 @@
                 nav.classList.remove('bg-darker/95', 'shadow-lg');
                 nav.classList.add('bg-darker/90');
             }
+        });
+
+        // --- ระบบแปลภาษา (Language System) ---
+        const translations = {
+            en: {
+                nav_services: "Services", nav_pricing: "Pricing", nav_portfolio: "Portfolio", nav_contact: "Contact",
+                hero_slogan: "Good Shot <br> <span class='text-accent ml-8'>Better Story</span>",
+                hero_title_1: "Freelance", hero_title_2: "Videographer", hero_title_3: "& Editor",
+                hero_desc: "Transforming raw moments into cinematic masterpieces. Specializing in automotive, lifestyle, and high-impact social media content.",
+                hero_btn_work: "View Work", hero_btn_package: "Packages",
+                srv_title_1: "My", srv_title_2: "Services",
+                srv_shoot_title: "Video Shooting",
+                srv_shoot_desc: "Professional on-location shooting for events, vehicles, products, and general content. High-quality footage that captures the essence of your brand.",
+                srv_shoot_1: "Events & Weddings", srv_shoot_2: "Commercials & Products", srv_shoot_3: "4K High-Resolution Capture",
+                start_at: "Starts at",
+                srv_edit_title: "Video Editing",
+                srv_edit_desc: "Fast-paced, cinematic, and engaging edits for short-form content (Reels, TikTok) and long-form YouTube videos. Color grading and sound design included.",
+                srv_edit_1: "Reels / TikTok / Shorts", srv_edit_2: "Color Grading & SFX", srv_edit_3: "Dynamic Transitions",
+                start_at_edit: "Starts at", per_clip: "/ clip",
+                pkg_title_1: "Package", pkg_title_2: "Rates",
+                pkg_desc: "Transparent pricing for high-quality production. Choose the package that fits your project's scale.",
+                basic_title: "Basic", basic_desc: "Quick & straightforward shoots",
+                b1: "1-2 Hours of Shooting", b2: "1 Location", b3: "1 Vertical Clip", b4: "Basic Editing & Color Grading",
+                most_popular: "Most Popular",
+                std_title: "Standard", std_desc: "Standard commercial quality",
+                s1: "2-4 Hours of Shooting", s2: "1-2 Locations", s3: "Multiple Video Versions", s4: "Editing + Sound + Color Grading",
+                prm_title: "Premium", prm_desc: "Full cinematic production",
+                p1: "Concept & Storyboard Planning", p2: "4-8 Hours of Shooting", p3: "Detail & Dynamic Movement Shots", p4: "Cinematic Editing & Advanced Color", p5: "Main Video + Sub-clips",
+                port_title_1: "Latest", port_title_2: "Work",
+                cat_auto: "Automotive", cat_life: "Lifestyle", cat_edit: "Video Edit",
+                ft_title_1: "Let's Create", ft_title_2: "Something Great",
+                ft_desc: "Ready to elevate your visuals? Drop a message for inquiries, custom quotes, or just to say hi. Small project or big impact, I'm ready to shoot.",
+                ft_dm: "DM Me", ft_call: "Call", ft_scan_title: "Scan to Contact", ft_scan_desc: "Scan the QR code to chat directly via LINE", ft_rights: "All rights reserved."
+            },
+            th: {
+                nav_services: "บริการ", nav_pricing: "ราคา", nav_portfolio: "ผลงาน", nav_contact: "ติดต่อ",
+                hero_slogan: "ภาพสวย <br> <span class='text-accent ml-8'>เรื่องราวชัดเจน</span>",
+                hero_title_1: "ช่างภาพวิดีโอ", hero_title_2: "และนักตัดต่อ", hero_title_3: "อิสระ",
+                hero_desc: "เปลี่ยนทุกช่วงเวลาให้เป็นผลงานชิ้นเอกสไตล์ภาพยนตร์ รับถ่ายและตัดต่องานยานยนต์ ไลฟ์สไตล์ และคอนเทนต์โซเชียลมีเดีย",
+                hero_btn_work: "ดูผลงาน", hero_btn_package: "ดูแพ็กเกจราคา",
+                srv_title_1: "บริการ", srv_title_2: "ของฉัน",
+                srv_shoot_title: "รับถ่ายวิดีโอ",
+                srv_shoot_desc: "บริการถ่ายวิดีโอนอกสถานที่ งานอีเวนต์ รถยนต์ สินค้า และคอนเทนต์ทั่วไป ด้วยคุณภาพความละเอียดสูง",
+                srv_shoot_1: "งานอีเวนต์ & ออกกอง", srv_shoot_2: "โฆษณา & ถ่ายสินค้า", srv_shoot_3: "ถ่ายทำด้วยความละเอียด 4K",
+                start_at: "เริ่มต้น",
+                srv_edit_title: "รับตัดต่อคลิปสั้น",
+                srv_edit_desc: "ตัดต่อวิดีโอสั้น (Reels, TikTok) และ YouTube สไตล์ Cinematic จังหวะสนุก พร้อมปรับแต่งสีและเสียงให้ดึงดูดผู้ชม",
+                srv_edit_1: "คลิปสั้น Reels / TikTok", srv_edit_2: "เกรดสี & ออกแบบเสียง", srv_edit_3: "ทรานซิชันลื่นไหลสุดเท่",
+                start_at_edit: "เริ่มต้น", per_clip: "/ คลิป",
+                pkg_title_1: "แพ็กเกจ", pkg_title_2: "ราคา",
+                pkg_desc: "ราคาชัดเจน คุ้มค่า เลือกแพ็กเกจที่เหมาะสมกับขนาดโปรเจกต์ของคุณ",
+                basic_title: "เริ่มต้น", basic_desc: "เน้นถ่ายทำรวดเร็ว เข้าถึงง่าย",
+                b1: "ถ่ายทำ 1-2 ชั่วโมง", b2: "1 สถานที่", b3: "1 คลิปแนวตั้ง", b4: "ตัดต่อ + เกรดสีพื้นฐาน",
+                most_popular: "ยอดนิยม",
+                std_title: "มาตรฐาน", std_desc: "คุณภาพงานวิดีโอระดับมาตรฐาน",
+                s1: "ถ่ายทำ 2-4 ชั่วโมง", s2: "1-2 สถานที่", s3: "วิดีโอหลายเวอร์ชัน", s4: "ตัดต่อ + ซาวด์ + เกรดสี",
+                prm_title: "พรีเมียม", prm_desc: "โปรดักชันจัดเต็ม สไตล์ภาพยนตร์",
+                p1: "คุยคอนเซปต์ / วาง Storyboard", p2: "ถ่ายทำ 4-8 ชั่วโมง", p3: "ถ่ายเจาะลึก detail / movement shot", p4: "ตัดต่อแบบ cinematic + เกรดสี", p5: "วิดีโอหลัก + คลิปตัดย่อย",
+                port_title_1: "ผลงาน", port_title_2: "ล่าสุด",
+                cat_auto: "ยานยนต์", cat_life: "ไลฟ์สไตล์", cat_edit: "งานตัดต่อ",
+                ft_title_1: "มาสร้างสรรค์", ft_title_2: "ผลงานสุดเจ๋งกัน",
+                ft_desc: "พร้อมยกระดับงานภาพของคุณหรือยัง? ทักมาสอบถามรายละเอียด ประเมินราคา หรือพูดคุยกันได้เลย โปรเจกต์เล็กหรือใหญ่ ผมก็พร้อมลุย",
+                ft_dm: "ส่งข้อความ", ft_call: "โทรศัพท์", ft_scan_title: "สแกนเพื่อติดต่อ", ft_scan_desc: "สแกนคิวอาร์โค้ดเพื่อแชทผ่าน LINE โดยตรง", ft_rights: "สงวนลิขสิทธิ์"
+            }
+        };
+
+        // ค่าเริ่มต้นเป็นภาษาอังกฤษ หรือดึงจากที่เคยตั้งค่าไว้
+        let currentLang = localStorage.getItem('site_lang') || 'en';
+        
+        function applyLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            // เปลี่ยนสีปุ่มให้รู้ว่ากำลังใช้ภาษาอะไร (Optional)
+            const btns = document.querySelectorAll('.lang-btn');
+            btns.forEach(btn => {
+                if (lang === 'th') {
+                    btn.classList.add('border-accent', 'text-white');
+                } else {
+                    btn.classList.remove('border-accent');
+                }
+            });
+        }
+
+        function toggleLang() {
+            currentLang = currentLang === 'en' ? 'th' : 'en';
+            localStorage.setItem('site_lang', currentLang); // บันทึกการเลือกไว้ในเครื่องผู้ใช้
+            applyLanguage(currentLang);
+        }
+
+        // โหลดภาษาเมื่อเปิดหน้าเว็บ
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang);
         });
     </script>
 </body>
