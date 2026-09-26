@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZOMEBXYZ | Freelance Videographer</title>
     
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Updated) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@100;200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&display=swap" rel="stylesheet">
     
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,8 +20,9 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Kanit', 'sans-serif'],
-                        heading: ['Kanit', 'sans-serif'],
+                        // เปลี่ยนมาใช้ Prompt เป็นฟอนต์หลัก
+                        sans: ['Prompt', 'sans-serif'],
+                        heading: ['Prompt', 'sans-serif'],
                         script: ['Permanent Marker', 'cursive'],
                     },
                     colors: {
@@ -58,6 +59,29 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #e11d48;
+        }
+
+        /* Lightbox CSS */
+        #lightbox {
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+        #lightbox.active {
+            display: flex;
+        }
+        .drive-iframe-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .drive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
     </style>
 </head>
@@ -177,7 +201,6 @@
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Basic -->
                 <div class="bg-card border border-white/5 p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
                     <div class="mb-8">
                         <h3 class="font-heading text-xl uppercase tracking-widest text-gray-400 mb-2" data-i18n="basic_title">Basic</h3>
@@ -192,7 +215,6 @@
                     </ul>
                 </div>
 
-                <!-- Standard -->
                 <div class="bg-card border border-accent p-8 flex flex-col relative transform md:-translate-y-4 shadow-[0_0_30px_rgba(225,29,72,0.1)]">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 text-xs font-bold uppercase tracking-widest" data-i18n="most_popular">
                         Most Popular
@@ -210,7 +232,6 @@
                     </ul>
                 </div>
 
-                <!-- Premium -->
                 <div class="bg-card border border-white/5 p-8 flex flex-col hover:-translate-y-2 transition-transform duration-300">
                     <div class="mb-8">
                         <h3 class="font-heading text-xl uppercase tracking-widest text-gray-400 mb-2" data-i18n="prm_title">Premium</h3>
@@ -229,50 +250,101 @@
         </div>
     </section>
 
-    <section id="portfolio" class="py-24 bg-dark">
+    <!-- PORTFOLIO: VIDEO SHOWREEL -->
+    <section id="portfolio" class="py-16 bg-dark">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12 flex justify-between items-end">
-                <div>
-                    <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2"><span data-i18n="port_title_1">Latest</span> <span class="text-accent" data-i18n="port_title_2">Work</span></h2>
-                    <div class="w-20 h-1 bg-accent"></div>
-                </div>
+            <div class="mb-12">
+                <h2 class="font-heading font-bold text-4xl uppercase tracking-wider text-white mb-2"><span data-i18n="port_title_video">Video</span> <span class="text-accent">Showreel</span></h2>
+                <div class="w-20 h-1 bg-accent"></div>
             </div>
 
-            <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                
-                <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
-                    <img src="731442646_1663163408268365_5469560214043133227_n.jpg" alt="Automotive Work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1" data-i18n="cat_auto">Automotive</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">CBR650R Rider</h4>
+            <!-- Video Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- GDrive Video 1 -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
+                    <div class="drive-iframe-container">
+                        <iframe src="https://drive.google.com/file/d/1t4AprseyieUSiIb5x6cDYX9EXF5cXqLa/preview" allow="autoplay"></iframe>
                     </div>
                 </div>
-                
-                <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
-                    <img src="590430512_18549629476000368_6008239310787326326_n.jpg" alt="Lifestyle Work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1" data-i18n="cat_life">Lifestyle</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">DON'T BE DUMB</h4>
+                <!-- GDrive Video 2 -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
+                    <div class="drive-iframe-container">
+                        <iframe src="https://drive.google.com/file/d/128-8f3-3IWENi04FaUAP5vDle1BBOW6E/preview" allow="autoplay"></iframe>
                     </div>
                 </div>
-
-                <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
-                    <video class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" autoplay loop muted playsinline>
-                        <!-- <source src="your-video-file-1.mp4" type="video/mp4"> -->
-                    </video>
-                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-                        <i class="fas fa-play-circle text-4xl text-white/50 group-hover:text-accent transition-colors"></i>
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1" data-i18n="cat_edit">Video Edit</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">Cinematic Reel 01</h4>
+                <!-- GDrive Video 3 -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
+                    <div class="drive-iframe-container">
+                        <iframe src="https://drive.google.com/file/d/1hahdp6ujSOj5H4BlLghJLdxGMrOooK_2/preview" allow="autoplay"></iframe>
                     </div>
                 </div>
-
+                <!-- GDrive Video 4 -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
+                    <div class="drive-iframe-container">
+                        <iframe src="https://drive.google.com/file/d/1LUXI4b00SrssmX2TzLyC_eoesRDVG1dw/preview" allow="autoplay"></iframe>
+                    </div>
+                </div>
+                <!-- GDrive Video 5 -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
+                    <div class="drive-iframe-container">
+                        <iframe src="https://drive.google.com/file/d/118el9BLKMUoeRYIIlpvgKWJ_Nf9YcOLz/preview" allow="autoplay"></iframe>
+                    </div>
+                </div>
+                <!-- GDrive Video 6 -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
+                    <div class="drive-iframe-container">
+                        <iframe src="https://drive.google.com/file/d/1TOEYLDYdvXz8o3W9Pg93LvF7GJ4J6fm7/preview" allow="autoplay"></iframe>
+                    </div>
+                </div>
+                <!-- Dropbox Video 7 (MOV) -->
+                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5 md:col-span-2 lg:col-span-3">
+                    <div class="relative w-full aspect-video bg-black flex items-center justify-center">
+                        <!-- เปลี่ยนจาก dl=0 เป็น raw=1 เพื่อให้เล่นไฟล์ตรงๆ -->
+                        <video class="w-full h-full object-cover" controls playsinline>
+                            <source src="https://www.dropbox.com/scl/fi/emzlczvlmyzabr2uzag2e/jingseng-df7.mov?rlkey=sehgtukip3ri0rj6ohuhg2lsd&st=88fup50u&raw=1" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- PORTFOLIO: PHOTO GALLERY -->
+    <section class="py-16 bg-darker border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="font-heading font-bold text-4xl uppercase tracking-wider text-white mb-2"><span data-i18n="port_title_photo">Photo</span> <span class="text-accent">Gallery</span></h2>
+                <div class="w-20 h-1 bg-accent"></div>
+                <p class="text-gray-400 mt-4 text-sm" data-i18n="photo_desc">Click on any image to expand.</p>
+            </div>
+
+            <!-- Photo Album Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                
+                <!-- วนลูปรูปภาพตามชื่อไฟล์ที่ให้มา -->
+                <img src="571352869_3475145155961791_...jpg" onerror="this.src='https://images.unsplash.com/photo-1599557620150-74d41270222a?w=400&q=80'" alt="Gallery Image" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="590430512_18549629476000368_6008239310787326326_n.jpg" onerror="this.src='https://images.unsplash.com/photo-1520699049698-acd2fce187f4?w=400&q=80'" alt="Gallery Image" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="731442646_1663163408268365_5469560214043133227_n.jpg" onerror="this.src='https://images.unsplash.com/photo-1554046920-90dcac824d55?w=400&q=80'" alt="Gallery Image" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                
+                <img src="IMG_7907.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7908.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7916.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7917.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7922.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7928.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7931.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7942.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+                <img src="IMG_7962.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Expanded Image" class="max-w-full max-h-[90vh] object-contain rounded drop-shadow-2xl">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors" onclick="closeLightbox()">&times;</button>
+    </div>
 
     <footer id="contact" class="bg-black py-20 border-t border-white/10 relative overflow-hidden">
         <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
@@ -351,6 +423,18 @@
             }
         });
 
+        // Lightbox Functions
+        function openLightbox(imgSrc) {
+            document.getElementById('lightbox-img').src = imgSrc;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden'; // ป้องกันการไถลหน้าเว็บตอนเปิดรูป
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
         // --- ระบบแปลภาษา (Language System) ---
         const translations = {
             en: {
@@ -377,8 +461,8 @@
                 s1: "2-4 Hours of Shooting", s2: "1-2 Locations", s3: "Multiple Video Versions", s4: "Editing + Sound + Color Grading",
                 prm_title: "Premium", prm_desc: "Full cinematic production",
                 p1: "Concept & Storyboard Planning", p2: "4-8 Hours of Shooting", p3: "Detail & Dynamic Movement Shots", p4: "Cinematic Editing & Advanced Color", p5: "Main Video + Sub-clips",
-                port_title_1: "Latest", port_title_2: "Work",
-                cat_auto: "Automotive", cat_life: "Lifestyle", cat_edit: "Video Edit",
+                port_title_video: "Video", port_title_photo: "Photo",
+                photo_desc: "Click on any image to expand.",
                 ft_title_1: "Let's Create", ft_title_2: "Something Great",
                 ft_desc: "Ready to elevate your visuals? Drop a message for inquiries, custom quotes, or just to say hi. Small project or big impact, I'm ready to shoot.",
                 ft_dm: "DM Me", ft_call: "Call", ft_scan_title: "Scan to Contact", ft_scan_desc: "Scan the QR code to chat directly via LINE", ft_rights: "All rights reserved."
@@ -407,15 +491,14 @@
                 s1: "ถ่ายทำ 2-4 ชั่วโมง", s2: "1-2 สถานที่", s3: "วิดีโอหลายเวอร์ชัน", s4: "ตัดต่อ + ซาวด์ + เกรดสี",
                 prm_title: "พรีเมียม", prm_desc: "โปรดักชันจัดเต็ม สไตล์ภาพยนตร์",
                 p1: "คุยคอนเซปต์ / วาง Storyboard", p2: "ถ่ายทำ 4-8 ชั่วโมง", p3: "ถ่ายเจาะลึก detail / movement shot", p4: "ตัดต่อแบบ cinematic + เกรดสี", p5: "วิดีโอหลัก + คลิปตัดย่อย",
-                port_title_1: "ผลงาน", port_title_2: "ล่าสุด",
-                cat_auto: "ยานยนต์", cat_life: "ไลฟ์สไตล์", cat_edit: "งานตัดต่อ",
+                port_title_video: "วิดีโอ", port_title_photo: "แกลลอรี่",
+                photo_desc: "คลิกที่รูปภาพเพื่อดูขนาดเต็ม",
                 ft_title_1: "มาสร้างสรรค์", ft_title_2: "ผลงานสุดเจ๋งกัน",
                 ft_desc: "พร้อมยกระดับงานภาพของคุณหรือยัง? ทักมาสอบถามรายละเอียด ประเมินราคา หรือพูดคุยกันได้เลย โปรเจกต์เล็กหรือใหญ่ ผมก็พร้อมลุย",
                 ft_dm: "ส่งข้อความ", ft_call: "โทรศัพท์", ft_scan_title: "สแกนเพื่อติดต่อ", ft_scan_desc: "สแกนคิวอาร์โค้ดเพื่อแชทผ่าน LINE โดยตรง", ft_rights: "สงวนลิขสิทธิ์"
             }
         };
 
-        // ค่าเริ่มต้นเป็นภาษาอังกฤษ หรือดึงจากที่เคยตั้งค่าไว้
         let currentLang = localStorage.getItem('site_lang') || 'en';
         
         function applyLanguage(lang) {
@@ -426,7 +509,6 @@
                     el.innerHTML = translations[lang][key];
                 }
             });
-            // เปลี่ยนสีปุ่มให้รู้ว่ากำลังใช้ภาษาอะไร (Optional)
             const btns = document.querySelectorAll('.lang-btn');
             btns.forEach(btn => {
                 if (lang === 'th') {
@@ -439,11 +521,10 @@
 
         function toggleLang() {
             currentLang = currentLang === 'en' ? 'th' : 'en';
-            localStorage.setItem('site_lang', currentLang); // บันทึกการเลือกไว้ในเครื่องผู้ใช้
+            localStorage.setItem('site_lang', currentLang);
             applyLanguage(currentLang);
         }
 
-        // โหลดภาษาเมื่อเปิดหน้าเว็บ
         document.addEventListener('DOMContentLoaded', () => {
             applyLanguage(currentLang);
         });
