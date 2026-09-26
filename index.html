@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance Videographer & Editor Portfolio</title>
+    <title>ZOMEBXYZ | Freelance Videographer</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,10 +45,6 @@
             background-position: center;
             background-attachment: fixed;
         }
-        .text-stroke {
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
-            color: transparent;
-        }
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -69,21 +65,28 @@
 
     <nav class="fixed w-full z-50 transition-all duration-300 bg-darker/90 backdrop-blur-md border-b border-white/5" id="navbar">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex items-center">
-                <img src="ZOMEBXYZ logo z.png" alt="ZOMEBXYZ Logo" class="h-10 md:h-12 object-contain drop-shadow-[0_0_10px_rgba(225,29,72,0.5)]">
-            </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase">
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-300 hover:text-white text-2xl z-50">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Links (Left Side) -->
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase items-center">
                 <a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a>
                 <a href="#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
                 <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors">Portfolio</a>
                 <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                <a href="https://www.instagram.com/zomebxyz/" target="_blank" class="text-accent hover:text-white transition-colors text-xl ml-4" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
-            <a href="#contact" class="hidden md:inline-block border border-accent text-accent hover:bg-accent hover:text-white px-6 py-2 uppercase tracking-widest text-xs font-bold transition-all duration-300">
-                Book Now
+            
+            <!-- Logo (Right Side, Increased Size) -->
+            <a href="#" class="flex items-center ml-auto md:ml-0">
+                <img src="ZOMEBXYZ logo z.png" alt="ZOMEBXYZ Logo" class="h-16 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(225,29,72,0.6)]">
             </a>
-            <button class="md:hidden text-gray-300 hover:text-white text-2xl">
-                <i class="fas fa-bars"></i>
-            </button>
+            
         </div>
     </nav>
 
@@ -111,12 +114,6 @@
                     </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Decorative elements -->
-        <div class="absolute bottom-10 right-10 flex flex-col items-end hidden md:flex">
-            <span class="font-heading uppercase tracking-[0.3em] text-gray-600 text-xs rotate-90 origin-right mb-12">Scroll Down</span>
-            <div class="w-px h-16 bg-gray-600"></div>
         </div>
     </section>
 
@@ -162,22 +159,6 @@
                     <p class="font-heading text-xl text-white tracking-wider">Starts at <span class="text-accent font-bold">400 THB</span> <span class="text-sm text-gray-500">/ clip</span></p>
                 </div>
             </div>
-
-            <!-- Categories -->
-            <div class="mt-16 border-t border-white/10 pt-16 flex flex-wrap justify-center gap-8">
-                <div class="flex items-center space-x-3 text-gray-300">
-                    <i class="fas fa-car text-xl text-accent"></i>
-                    <span class="font-heading uppercase tracking-widest">Automotive</span>
-                </div>
-                <div class="flex items-center space-x-3 text-gray-300">
-                    <i class="fas fa-store text-xl text-accent"></i>
-                    <span class="font-heading uppercase tracking-widest">Business</span>
-                </div>
-                <div class="flex items-center space-x-3 text-gray-300">
-                    <i class="fas fa-mobile-alt text-xl text-accent"></i>
-                    <span class="font-heading uppercase tracking-widest">Social Media</span>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -199,10 +180,9 @@
                     <ul class="flex-grow space-y-4 text-gray-300 text-sm font-light mb-8">
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1-2 Hours of Shooting</li>
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1 Location</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1 Vertical Clip (Reel/TikTok)</li>
+                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 1 Vertical Clip</li>
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Basic Editing & Color Grading</li>
                     </ul>
-                    <a href="#contact" class="w-full block text-center border border-white/20 py-3 font-heading uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors">Select Basic</a>
                 </div>
 
                 <!-- Standard -->
@@ -221,7 +201,6 @@
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Multiple Video Versions</li>
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Editing + Sound + Color Grading</li>
                     </ul>
-                    <a href="#contact" class="w-full block text-center bg-accent text-white py-3 font-heading uppercase tracking-widest text-sm hover:bg-red-700 transition-colors">Select Standard</a>
                 </div>
 
                 <!-- Premium -->
@@ -234,11 +213,9 @@
                     <ul class="flex-grow space-y-4 text-gray-300 text-sm font-light mb-8">
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Concept & Storyboard Planning</li>
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> 4-8 Hours of Shooting</li>
-                        <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Detail & Dynamic Movement Shots</li>
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Cinematic Editing & Advanced Color</li>
                         <li class="flex items-start"><i class="fas fa-chevron-right text-accent mt-1 mr-3 text-xs"></i> Main Video + Sub-clips</li>
                     </ul>
-                    <a href="#contact" class="w-full block text-center border border-white/20 py-3 font-heading uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-colors">Select Premium</a>
                 </div>
             </div>
         </div>
@@ -251,76 +228,66 @@
                     <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2">Latest <span class="text-accent">Work</span></h2>
                     <div class="w-20 h-1 bg-accent"></div>
                 </div>
-                <div class="hidden md:block">
-                    <a href="#" class="text-gray-400 hover:text-white uppercase tracking-widest text-sm font-heading flex items-center gap-2 transition-colors">
-                        View All <i class="fas fa-arrow-right text-accent"></i>
-                    </a>
-                </div>
             </div>
 
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Item 1 -->
-                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1599557620150-74d41270222a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Automotive Shoot" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
+                
+                <!-- Item 1: Your Photo 1 -->
+                <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
+                    <img src="731442646_1663163408268365_5469560214043133227_n.jpg" alt="Automotive Work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Automotive</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">Night Run / R34</h4>
+                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">CBR650R Rider</h4>
                     </div>
                 </div>
                 
-                <!-- Item 2 -->
-                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1520699049698-acd2fce187f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lifestyle Video" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
+                <!-- Item 2: Your Photo 2 -->
+                <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
+                    <img src="590430512_18549629476000368_6008239310787326326_n.jpg" alt="Lifestyle Work" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                         <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Lifestyle</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">Urban Exploration</h4>
+                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">DON'T BE DUMB</h4>
                     </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1616423640778-28d1b53229bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Commercial</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">Fitness Apparel Ad</h4>
+                <!-- Item 3: Video Placeholder 1 -->
+                <div class="group relative overflow-hidden aspect-[4/5] md:aspect-video bg-gray-900 cursor-pointer">
+                    <!-- วิธีเพิ่มวีดีโอ: นำไฟล์ .mp4 มาใส่ในโฟลเดอร์เดียวกัน แล้วแก้ src ด้านล่างนี้ -->
+                    <video class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" autoplay loop muted playsinline>
+                        <!-- <source src="your-video-file-1.mp4" type="video/mp4"> -->
+                    </video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <i class="fas fa-play-circle text-4xl text-white/50 group-hover:text-accent transition-colors"></i>
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Video Edit</span>
+                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">Cinematic Reel 01</h4>
                     </div>
                 </div>
 
-                <!-- Item 4 -->
-                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1554046920-90dcac824d55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Event" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Event</span>
-                        <h4 class="text-white font-heading text-xl uppercase tracking-wider">Underground Music Fest</h4>
-                    </div>
-                </div>
-
-                <!-- Item 5 -->
-                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer md:col-span-2 lg:col-span-2">
-                    <img src="https://images.unsplash.com/photo-1517400508447-f8dd518b86db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Cinematic Reel" class="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-700">
-                    <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/60 transition-colors duration-300">
-                        <div class="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center text-white group-hover:bg-accent group-hover:border-accent transition-all duration-300">
-                            <i class="fas fa-play ml-1"></i>
+                <!-- Item 4: Video Placeholder 2 -->
+                <div class="group relative overflow-hidden aspect-video bg-gray-900 cursor-pointer md:col-span-2 lg:col-span-3">
+                    <!-- วิธีเพิ่มวีดีโอแนวนอนขนาดใหญ่: แก้ไข src ด้านล่างนี้ -->
+                    <video class="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-700" autoplay loop muted playsinline>
+                        <!-- <source src="your-main-video-file.mp4" type="video/mp4"> -->
+                    </video>
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <div class="w-20 h-20 rounded-full bg-black/50 border-2 border-white/50 flex items-center justify-center backdrop-blur-sm group-hover:border-accent group-hover:bg-accent/20 transition-all duration-300">
+                            <i class="fas fa-play text-2xl text-white ml-2"></i>
                         </div>
                     </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                        <span class="text-accent text-xs font-bold uppercase tracking-widest mb-1">Showreel</span>
-                        <h4 class="text-white font-heading text-2xl uppercase tracking-wider">2026 Cinematography Reel</h4>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-accent text-sm font-bold uppercase tracking-widest mb-2">Main Showcase</span>
+                        <h4 class="text-white font-heading text-3xl uppercase tracking-wider">ZOMEBXYZ DIRECTORS CUT</h4>
                     </div>
                 </div>
-            </div>
-            
-            <div class="mt-10 text-center md:hidden">
-                <a href="#" class="border border-white/20 px-8 py-3 uppercase tracking-widest text-sm font-heading inline-block hover:border-accent hover:text-accent transition-colors">
-                    View All Work
-                </a>
+
             </div>
         </div>
     </section>
 
     <footer id="contact" class="bg-black py-20 border-t border-white/10 relative overflow-hidden">
-        <!-- Background subtle accent -->
         <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -340,7 +307,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-gray-500 uppercase tracking-widest">DM Me</p>
-                                <p class="text-white font-medium">@Aot.exe</p>
+                                <p class="text-white font-medium">@zomebxyz</p>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4">
@@ -374,10 +341,10 @@
             </div>
             
             <div class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-                <p>&copy; 2026 VDO.XYZ. All rights reserved.</p>
+                <p>&copy; 2026 ZOMEBXYZ. All rights reserved.</p>
                 <div class="flex space-x-4 mt-4 md:mt-0 font-heading uppercase tracking-widest">
-                    <a href="#" class="hover:text-white transition-colors">Instagram</a>
-                    <a href="#" class="hover:text-white transition-colors">YouTube</a>
+                    <a href="https://www.instagram.com/zomebxyz/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://www.youtube.com/@somebxyz" target="_blank" class="hover:text-white transition-colors">YouTube</a>
                     <a href="#" class="hover:text-white transition-colors">TikTok</a>
                 </div>
             </div>
@@ -385,21 +352,6 @@
     </footer>
 
     <script>
-        // Simple message box replacement for alert()
-        function showMsg() {
-            const btn = document.querySelector('button[type="button"]');
-            const originalText = btn.innerText;
-            btn.innerText = 'MESSAGE SENT!';
-            btn.classList.add('bg-accent', 'text-white');
-            btn.classList.remove('bg-white', 'text-black');
-            
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.classList.remove('bg-accent', 'text-white');
-                btn.classList.add('bg-white', 'text-black');
-            }, 3000);
-        }
-
         // Navbar blur effect on scroll
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
