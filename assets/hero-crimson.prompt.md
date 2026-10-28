@@ -1,0 +1,7 @@
+# Crimson hero graphic
+
+Created with the built-in Imagegen tool from `assets/portrait.jpg`. Output: `assets/hero-crimson.png`. Original photograph is retained.
+
+## Final prompt
+
+Use case: identity-preserve / compositing. Edit target: attached photo of the videographer. Create a premium portrait-format editorial graphic for his ZOMEBXYZ portfolio website hero. Preserve this exact man's recognizable face, hairstyle, tattoos, dark oversized shirt, hands, camera and white gimbal, his sideward gaze and natural pose. Reframe as a stronger medium portrait from upper thighs upward, subject large and visually dominant. Remove the original shop, cars and street completely. Composite his realistic photographic cutout over near-black #02060E with deep crimson #C50037 gradient glow and one bold oversized abstract red circular arc, subtle halftone film grain and restrained angular collage texture. High-contrast monochrome subject with subtle crimson rim lighting, clean detailed skin and camera, polished underground automotive filmmaker poster mood, sophisticated graphic design, dimensional but uncluttered, clean dark edges to blend into a black website. No words, no lettering, no logos, no software icons (these are added separately as real web elements), no watermarks. Keep the original person rather than inventing another person. Composition: centered subject, head entirely visible with breathing room at top, camera and hands fully visible. Portrait 4:5 composition.

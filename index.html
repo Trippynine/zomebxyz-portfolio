@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="th" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="ZOMEBXYZ%20logo%20z.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ZOMEBXYZ — Freelance videographer &amp; editor. Automotive, lifestyle, films and photography. ถ่ายทำและตัดต่อวิดีโอ ติดต่อร่วมงานได้ที่นี่">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="glass.css">
     <title>ZOMEBXYZ | Freelance Videographer</title>
     
     <!-- Google Fonts (Updated) -->
@@ -29,125 +33,29 @@
                         dark: '#050505',
                         darker: '#0a0a0a',
                         card: '#111111',
-                        accent: '#e11d48', // Rose-600 / Red accent
+                        accent: '#f45b7f', // Rose-600 / Red accent
                     }
                 }
             }
         }
     </script>
-    <style>
-        body {
-            background-color: #050505;
-            color: #f3f4f6;
-        }
-        .hero-bg {
-            background-image: linear-gradient(to right, rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.4)), url('https://images.unsplash.com/photo-1585644721490-e547071ef28a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a0a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #e11d48;
-        }
-
-        /* Lightbox CSS */
-        #lightbox {
-            display: none;
-            backdrop-filter: blur(5px);
-        }
-        #lightbox.active {
-            display: flex;
-        }
-        .drive-iframe-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 ratio */
-            height: 0;
-            overflow: hidden;
-        }
-        .drive-iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
 </head>
-<body class="antialiased selection:bg-accent selection:text-white">
-
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-darker/90 backdrop-blur-md border-b border-white/5" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            
-            <!-- Mobile Menu Button & Lang Toggle -->
-            <div class="flex items-center gap-4 md:hidden z-50">
-                <button class="text-gray-300 hover:text-white text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <button onclick="toggleLang()" class="border border-white/30 text-white text-xs font-bold px-2 py-1 rounded hover:border-accent transition-colors lang-btn">TH / EN</button>
-            </div>
-
-            <!-- Links (Left Side) -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase items-center">
-                <a href="#services" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_services">Services</a>
-                <a href="#pricing" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_pricing">Pricing</a>
-                <a href="#portfolio" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_portfolio">Portfolio</a>
-                <a href="#contact" class="text-gray-400 hover:text-white transition-colors" data-i18n="nav_contact">Contact</a>
-                <a href="https://www.instagram.com/zomebxyz/" target="_blank" class="text-accent hover:text-white transition-colors text-xl ml-4" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <!-- Desktop Language Toggle -->
-                <button onclick="toggleLang()" class="ml-4 border border-white/30 text-gray-300 hover:text-white hover:border-accent text-xs font-bold px-3 py-1 rounded transition-colors lang-btn">
-                    TH / EN
-                </button>
-            </div>
-            
-            <!-- Logo (Right Side) -->
-            <a href="#" class="flex items-center ml-auto md:ml-0">
-                <img src="ZOMEBXYZ logo z.png" alt="ZOMEBXYZ Logo" class="h-16 md:h-20 object-contain drop-shadow-[0_0_15px_rgba(225,29,72,0.6)]">
-            </a>
-            
-        </div>
-    </nav>
-
-    <section class="hero-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
-            <div class="max-w-3xl">
-                <p class="font-script text-4xl md:text-5xl lg:text-6xl text-white transform -rotate-2 mb-6 opacity-90 drop-shadow-lg" data-i18n="hero_slogan">
-                    Good Shot <br>
-                    <span class="text-accent ml-8">Better Story</span>
-                </p>
-                <h1 class="font-heading font-bold text-5xl md:text-7xl lg:text-8xl text-white uppercase leading-none mb-4 tracking-tighter">
-                    <span data-i18n="hero_title_1">Freelance</span> <br>
-                    <span class="text-transparent" style="-webkit-text-stroke: 2px #fff;" data-i18n="hero_title_2">Videographer</span> <br>
-                    <span class="text-accent" data-i18n="hero_title_3">& Editor</span>
-                </h1>
-                <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-10 font-light" data-i18n="hero_desc">
-                    Transforming raw moments into cinematic masterpieces. Specializing in automotive, lifestyle, and high-impact social media content.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#portfolio" class="bg-white text-dark font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-gray-200 transition-colors" data-i18n="hero_btn_work">
-                        View Work
-                    </a>
-                    <a href="#pricing" class="border border-white/20 text-white font-bold uppercase tracking-widest text-sm px-8 py-4 hover:border-accent hover:text-accent transition-colors" data-i18n="hero_btn_package">
-                        Packages
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
+<body>
+<a class="skip" href="#portfolio">ข้ามไปดูผลงาน / Skip to work</a>
+<header class="site-header"><a class="brand" href="#home" aria-label="ZOMEBXYZ home"><img src="ZOMEBXYZ logo z.png" alt=""><span>ZOMEBXYZ<span class="brand-sub">VISUAL STORIES / IN MOTION</span></span></a>
+<nav id="navigation" aria-label="Main navigation"><a href="#portfolio" data-i18n="nav_portfolio">ผลงาน</a><a href="#about" data-i18n="nav_about">เกี่ยวกับผม</a><a href="#contact" data-i18n="nav_contact">ติดต่อ</a></nav>
+<div class="header-actions"><button id="language" class="lang-btn" aria-label="Switch language">EN</button><button id="menu" aria-label="เปิดเมนู / Open menu" aria-expanded="false" aria-controls="navigation">☰</button></div></header>
+<main>
+<section id="home" class="hero wrap">
+<div class="hero-top"><span class="eyebrow">INDEPENDENT VIDEOGRAPHER & EDITOR</span><span class="edition">PORTFOLIO / 2026</span></div>
+<div class="hero-layout"><div class="hero-copy"><p class="eyebrow intro">HELLO, I'M ZOMEBXYZ</p><h1>GOOD SHOT.<br><span>BETTER</span><br>STORY.</h1><p class="hero-description" data-i18n="intro_desc">ถ่ายทอดรถยนต์ ไลฟ์สไตล์ และทุกโมเมนต์ ผ่านมุมมองของผม ตั้งแต่หลังกล้องจนถึงเฟรมสุดท้าย</p><div class="hero-links"><a class="pill primary" href="#portfolio"><span data-i18n="hero_btn_work">ดูผลงาน</span> ↗</a><a class="text-link" href="#contact" data-i18n="talk">คุยเรื่องโปรเจกต์ ↗</a></div><div class="software"><p>THE CREATIVE TOOLKIT</p><ul class="software-list" aria-label="Creative software"><li><span class="software-icon adobe-icon icon-ae" role="img" aria-label="Adobe After Effects" title="Adobe After Effects"></span><span>Ae</span></li><li><span class="software-icon adobe-icon icon-pr" role="img" aria-label="Adobe Premiere Pro" title="Adobe Premiere Pro"></span><span>Pr</span></li><li><span class="software-icon adobe-icon icon-ps" role="img" aria-label="Adobe Photoshop" title="Adobe Photoshop"></span><span>Ps</span></li><li><span class="software-icon adobe-icon icon-ai" role="img" aria-label="Adobe Illustrator" title="Adobe Illustrator"></span><span>Ai</span></li><li><img src="assets/icons/davinci-resolve-studio.png" alt="DaVinci Resolve" title="DaVinci Resolve" width="52" height="52"><span>Resolve</span></li></ul></div></div>
+<figure class="hero-portrait"><div class="portrait-stage"><img src="assets/portrait-cutout-hires.png" alt="ZOMEBXYZ with camera and gimbal — supplied high-resolution cutout" fetchpriority="high" width="1077" height="1461"></div><figcaption><span>BEHIND THE LENS</span><span>01 / ZOMEBXYZ</span></figcaption><div class="photo-mark" aria-hidden="true">REC <i></i></div></figure></div>
+<div class="hero-bottom"><span>AUTOMOTIVE / LIFESTYLE / VISUAL STORYTELLING</span><a href="#portfolio">SCROLL TO EXPLORE ↓</a></div>
+</section>
+<section id="portfolio" class="wrap work-section"><div class="section-heading"><div><p class="eyebrow">01 / SELECTED WORK</p><h2>THE MOTION<span class="accent"> ARCHIVE.</span></h2></div><p data-i18n="work_desc">มุมมอง จังหวะ และเรื่องราว<br>เลือกผลงานที่อยากดู แล้วกดเล่นได้เลย</p></div>
+<div id="video-grid" class="video-grid"></div></section>
+<section id="gallery" class="wrap gallery-section"><div class="section-heading"><div><p class="eyebrow">02 / STILL STORIES</p><h2>BETWEEN<span class="accent"> FRAMES.</span></h2></div><p data-i18n="gallery_desc">บางเรื่องราว เล่าได้ในภาพเดียว<br>แตะเพื่อดูภาพเต็ม</p></div><div id="photo-grid" class="photo-grid"></div></section>
+<section id="about" class="wrap about-section"><div class="about-images"><img src="assets/behind-scenes.jpg" loading="lazy" alt="ZOMEBXYZ setting up a camera beside a car"><img class="about-inset" src="assets/on-set.jpg" loading="lazy" alt="Behind the scenes: filming with a gimbal"></div><div class="about-copy"><p class="eyebrow">03 / THE PERSON BEHIND IT</p><h2>A GOOD STORY<br>STARTS WITH<br><span class="accent">A NEW ANGLE.</span></h2><p data-i18n="about_desc">ผม ZOMEBXYZ ช่างภาพวิดีโอและนักตัดต่ออิสระ ชอบมองหามุมใหม่ ๆ ให้กับรถยนต์ ไลฟ์สไตล์ และคอนเทนต์ ตั้งแต่การถ่ายทำ จัดจังหวะภาพ ไปจนถึงสีและเสียง เพื่อให้แต่ละงานมีเรื่องราวในแบบของตัวเอง</p><div class="skill-list"><span>VIDEOGRAPHY</span><span>EDITING</span><span>COLOR GRADING</span><span>SOUND DESIGN</span></div><a class="text-link" href="https://www.instagram.com/zomebxyz/" target="_blank" rel="noopener noreferrer">BEHIND THE SCENES ON INSTAGRAM ↗</a></div></section>
     <section id="services" class="py-24 bg-dark">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16">
@@ -191,9 +99,7 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <section id="pricing" class="py-24 bg-darker">
+    </section>    <section id="pricing" class="py-24 bg-darker">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16 text-center">
                 <h2 class="font-heading font-bold text-4xl md:text-5xl uppercase tracking-wider text-white mb-2"><span data-i18n="pkg_title_1">Package</span> <span class="text-accent" data-i18n="pkg_title_2">Rates</span></h2>
@@ -249,285 +155,7 @@
             </div>
         </div>
     </section>
-
-    <!-- PORTFOLIO: VIDEO SHOWREEL -->
-    <section id="portfolio" class="py-16 bg-dark">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12">
-                <h2 class="font-heading font-bold text-4xl uppercase tracking-wider text-white mb-2"><span data-i18n="port_title_video">Video</span> <span class="text-accent">Showreel</span></h2>
-                <div class="w-20 h-1 bg-accent"></div>
-            </div>
-
-            <!-- Video Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- GDrive Video 1 -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
-                    <div class="drive-iframe-container">
-                        <iframe src="https://drive.google.com/file/d/1t4AprseyieUSiIb5x6cDYX9EXF5cXqLa/preview" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!-- GDrive Video 2 -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
-                    <div class="drive-iframe-container">
-                        <iframe src="https://drive.google.com/file/d/128-8f3-3IWENi04FaUAP5vDle1BBOW6E/preview" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!-- GDrive Video 3 -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
-                    <div class="drive-iframe-container">
-                        <iframe src="https://drive.google.com/file/d/1hahdp6ujSOj5H4BlLghJLdxGMrOooK_2/preview" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!-- GDrive Video 4 -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
-                    <div class="drive-iframe-container">
-                        <iframe src="https://drive.google.com/file/d/1LUXI4b00SrssmX2TzLyC_eoesRDVG1dw/preview" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!-- GDrive Video 5 -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
-                    <div class="drive-iframe-container">
-                        <iframe src="https://drive.google.com/file/d/118el9BLKMUoeRYIIlpvgKWJ_Nf9YcOLz/preview" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!-- GDrive Video 6 -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5">
-                    <div class="drive-iframe-container">
-                        <iframe src="https://drive.google.com/file/d/1TOEYLDYdvXz8o3W9Pg93LvF7GJ4J6fm7/preview" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!-- Dropbox Video 7 (MOV) -->
-                <div class="bg-gray-900 rounded overflow-hidden shadow-lg border border-white/5 md:col-span-2 lg:col-span-3">
-                    <div class="relative w-full aspect-video bg-black flex items-center justify-center">
-                        <!-- เปลี่ยนจาก dl=0 เป็น raw=1 เพื่อให้เล่นไฟล์ตรงๆ -->
-                        <video class="w-full h-full object-cover" controls playsinline>
-                            <source src="https://www.dropbox.com/scl/fi/emzlczvlmyzabr2uzag2e/jingseng-df7.mov?rlkey=sehgtukip3ri0rj6ohuhg2lsd&st=88fup50u&raw=1" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PORTFOLIO: PHOTO GALLERY -->
-    <section class="py-16 bg-darker border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12">
-                <h2 class="font-heading font-bold text-4xl uppercase tracking-wider text-white mb-2"><span data-i18n="port_title_photo">Photo</span> <span class="text-accent">Gallery</span></h2>
-                <div class="w-20 h-1 bg-accent"></div>
-                <p class="text-gray-400 mt-4 text-sm" data-i18n="photo_desc">Click on any image to expand.</p>
-            </div>
-
-            <!-- Photo Album Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                
-                <!-- วนลูปรูปภาพตามชื่อไฟล์ที่ให้มา -->
-                <img src="571352869_3475145155961791_...jpg" onerror="this.src='https://images.unsplash.com/photo-1599557620150-74d41270222a?w=400&q=80'" alt="Gallery Image" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="590430512_18549629476000368_6008239310787326326_n.jpg" onerror="this.src='https://images.unsplash.com/photo-1520699049698-acd2fce187f4?w=400&q=80'" alt="Gallery Image" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="731442646_1663163408268365_5469560214043133227_n.jpg" onerror="this.src='https://images.unsplash.com/photo-1554046920-90dcac824d55?w=400&q=80'" alt="Gallery Image" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                
-                <img src="IMG_7907.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7908.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7916.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7917.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7922.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7928.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7931.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7942.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-                <img src="IMG_7962.webp" alt="Gallery Image" onerror="this.style.display='none'" class="w-full aspect-square object-cover cursor-pointer hover:opacity-75 transition-opacity rounded border border-white/10" onclick="openLightbox(this.src)">
-            </div>
-        </div>
-    </section>
-
-    <!-- Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="Expanded Image" class="max-w-full max-h-[90vh] object-contain rounded drop-shadow-2xl">
-        <button class="absolute top-6 right-6 text-white text-4xl hover:text-accent transition-colors" onclick="closeLightbox()">&times;</button>
-    </div>
-
-    <footer id="contact" class="bg-black py-20 border-t border-white/10 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[100px] pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="font-script text-4xl md:text-5xl text-white mb-4 drop-shadow-md">
-                        <span data-i18n="ft_title_1">Let's Create</span> <br> <span class="text-accent" data-i18n="ft_title_2">Something Great</span>
-                    </h2>
-                    <p class="text-gray-400 mb-8 font-light max-w-md" data-i18n="ft_desc">
-                        Ready to elevate your visuals? Drop a message for inquiries, custom quotes, or just to say hi. Small project or big impact, I'm ready to shoot.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-card rounded flex items-center justify-center text-white border border-white/5">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="ft_dm">DM Me</p>
-                                <p class="text-white font-medium">@zomebxyz</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-card rounded flex items-center justify-center text-white border border-white/5">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest" data-i18n="ft_call">Call</p>
-                                <p class="text-white font-medium">065-274-6176</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-card rounded flex items-center justify-center text-white border border-white/5 text-xl font-bold text-[#00B900]">
-                                <i class="fab fa-line"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-widest">Line ID</p>
-                                <p class="text-white font-medium">@Aot.exe</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-card p-8 border border-white/5 relative flex flex-col items-center justify-center text-center shadow-[0_0_20px_rgba(225,29,72,0.05)]">
-                    <h3 class="font-heading text-2xl text-white mb-6 uppercase tracking-wider" data-i18n="ft_scan_title">Scan to Contact</h3>
-                    <div class="bg-white p-2 rounded-xl inline-block mb-4 transition-transform hover:scale-105 duration-300">
-                        <img src="S__7364610.jpg" alt="LINE QR Code" class="w-48 h-48 md:w-56 md:h-56 object-cover rounded-lg">
-                    </div>
-                    <p class="text-gray-400 font-light text-sm" data-i18n="ft_scan_desc">Scan the QR code to chat directly via LINE</p>
-                </div>
-            </div>
-            
-            <div class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600">
-                <p>&copy; 2026 ZOMEBXYZ. <span data-i18n="ft_rights">All rights reserved.</span></p>
-                <div class="flex space-x-4 mt-4 md:mt-0 font-heading uppercase tracking-widest">
-                    <a href="https://www.instagram.com/zomebxyz/" target="_blank" class="hover:text-white transition-colors">Instagram</a>
-                    <a href="https://www.youtube.com/@somebxyz" target="_blank" class="hover:text-white transition-colors">YouTube</a>
-                    <a href="#" class="hover:text-white transition-colors">TikTok</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Navbar blur effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-darker/95', 'shadow-lg');
-                nav.classList.remove('bg-darker/90');
-            } else {
-                nav.classList.remove('bg-darker/95', 'shadow-lg');
-                nav.classList.add('bg-darker/90');
-            }
-        });
-
-        // Lightbox Functions
-        function openLightbox(imgSrc) {
-            document.getElementById('lightbox-img').src = imgSrc;
-            document.getElementById('lightbox').classList.add('active');
-            document.body.style.overflow = 'hidden'; // ป้องกันการไถลหน้าเว็บตอนเปิดรูป
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // --- ระบบแปลภาษา (Language System) ---
-        const translations = {
-            en: {
-                nav_services: "Services", nav_pricing: "Pricing", nav_portfolio: "Portfolio", nav_contact: "Contact",
-                hero_slogan: "Good Shot <br> <span class='text-accent ml-8'>Better Story</span>",
-                hero_title_1: "Freelance", hero_title_2: "Videographer", hero_title_3: "& Editor",
-                hero_desc: "Transforming raw moments into cinematic masterpieces. Specializing in automotive, lifestyle, and high-impact social media content.",
-                hero_btn_work: "View Work", hero_btn_package: "Packages",
-                srv_title_1: "My", srv_title_2: "Services",
-                srv_shoot_title: "Video Shooting",
-                srv_shoot_desc: "Professional on-location shooting for events, vehicles, products, and general content. High-quality footage that captures the essence of your brand.",
-                srv_shoot_1: "Events & Weddings", srv_shoot_2: "Commercials & Products", srv_shoot_3: "4K High-Resolution Capture",
-                start_at: "Starts at",
-                srv_edit_title: "Video Editing",
-                srv_edit_desc: "Fast-paced, cinematic, and engaging edits for short-form content (Reels, TikTok) and long-form YouTube videos. Color grading and sound design included.",
-                srv_edit_1: "Reels / TikTok / Shorts", srv_edit_2: "Color Grading & SFX", srv_edit_3: "Dynamic Transitions",
-                start_at_edit: "Starts at", per_clip: "/ clip",
-                pkg_title_1: "Package", pkg_title_2: "Rates",
-                pkg_desc: "Transparent pricing for high-quality production. Choose the package that fits your project's scale.",
-                basic_title: "Basic", basic_desc: "Quick & straightforward shoots",
-                b1: "1-2 Hours of Shooting", b2: "1 Location", b3: "1 Vertical Clip", b4: "Basic Editing & Color Grading",
-                most_popular: "Most Popular",
-                std_title: "Standard", std_desc: "Standard commercial quality",
-                s1: "2-4 Hours of Shooting", s2: "1-2 Locations", s3: "Multiple Video Versions", s4: "Editing + Sound + Color Grading",
-                prm_title: "Premium", prm_desc: "Full cinematic production",
-                p1: "Concept & Storyboard Planning", p2: "4-8 Hours of Shooting", p3: "Detail & Dynamic Movement Shots", p4: "Cinematic Editing & Advanced Color", p5: "Main Video + Sub-clips",
-                port_title_video: "Video", port_title_photo: "Photo",
-                photo_desc: "Click on any image to expand.",
-                ft_title_1: "Let's Create", ft_title_2: "Something Great",
-                ft_desc: "Ready to elevate your visuals? Drop a message for inquiries, custom quotes, or just to say hi. Small project or big impact, I'm ready to shoot.",
-                ft_dm: "DM Me", ft_call: "Call", ft_scan_title: "Scan to Contact", ft_scan_desc: "Scan the QR code to chat directly via LINE", ft_rights: "All rights reserved."
-            },
-            th: {
-                nav_services: "บริการ", nav_pricing: "ราคา", nav_portfolio: "ผลงาน", nav_contact: "ติดต่อ",
-                hero_slogan: "ภาพสวย <br> <span class='text-accent ml-8'>เรื่องราวชัดเจน</span>",
-                hero_title_1: "ช่างภาพวิดีโอ", hero_title_2: "และนักตัดต่อ", hero_title_3: "อิสระ",
-                hero_desc: "เปลี่ยนทุกช่วงเวลาให้เป็นผลงานชิ้นเอกสไตล์ภาพยนตร์ รับถ่ายและตัดต่องานยานยนต์ ไลฟ์สไตล์ และคอนเทนต์โซเชียลมีเดีย",
-                hero_btn_work: "ดูผลงาน", hero_btn_package: "ดูแพ็กเกจราคา",
-                srv_title_1: "บริการ", srv_title_2: "ของฉัน",
-                srv_shoot_title: "รับถ่ายวิดีโอ",
-                srv_shoot_desc: "บริการถ่ายวิดีโอนอกสถานที่ งานอีเวนต์ รถยนต์ สินค้า และคอนเทนต์ทั่วไป ด้วยคุณภาพความละเอียดสูง",
-                srv_shoot_1: "งานอีเวนต์ & ออกกอง", srv_shoot_2: "โฆษณา & ถ่ายสินค้า", srv_shoot_3: "ถ่ายทำด้วยความละเอียด 4K",
-                start_at: "เริ่มต้น",
-                srv_edit_title: "รับตัดต่อคลิปสั้น",
-                srv_edit_desc: "ตัดต่อวิดีโอสั้น (Reels, TikTok) และ YouTube สไตล์ Cinematic จังหวะสนุก พร้อมปรับแต่งสีและเสียงให้ดึงดูดผู้ชม",
-                srv_edit_1: "คลิปสั้น Reels / TikTok", srv_edit_2: "เกรดสี & ออกแบบเสียง", srv_edit_3: "ทรานซิชันลื่นไหลสุดเท่",
-                start_at_edit: "เริ่มต้น", per_clip: "/ คลิป",
-                pkg_title_1: "แพ็กเกจ", pkg_title_2: "ราคา",
-                pkg_desc: "ราคาชัดเจน คุ้มค่า เลือกแพ็กเกจที่เหมาะสมกับขนาดโปรเจกต์ของคุณ",
-                basic_title: "เริ่มต้น", basic_desc: "เน้นถ่ายทำรวดเร็ว เข้าถึงง่าย",
-                b1: "ถ่ายทำ 1-2 ชั่วโมง", b2: "1 สถานที่", b3: "1 คลิปแนวตั้ง", b4: "ตัดต่อ + เกรดสีพื้นฐาน",
-                most_popular: "ยอดนิยม",
-                std_title: "มาตรฐาน", std_desc: "คุณภาพงานวิดีโอระดับมาตรฐาน",
-                s1: "ถ่ายทำ 2-4 ชั่วโมง", s2: "1-2 สถานที่", s3: "วิดีโอหลายเวอร์ชัน", s4: "ตัดต่อ + ซาวด์ + เกรดสี",
-                prm_title: "พรีเมียม", prm_desc: "โปรดักชันจัดเต็ม สไตล์ภาพยนตร์",
-                p1: "คุยคอนเซปต์ / วาง Storyboard", p2: "ถ่ายทำ 4-8 ชั่วโมง", p3: "ถ่ายเจาะลึก detail / movement shot", p4: "ตัดต่อแบบ cinematic + เกรดสี", p5: "วิดีโอหลัก + คลิปตัดย่อย",
-                port_title_video: "วิดีโอ", port_title_photo: "แกลลอรี่",
-                photo_desc: "คลิกที่รูปภาพเพื่อดูขนาดเต็ม",
-                ft_title_1: "มาสร้างสรรค์", ft_title_2: "ผลงานสุดเจ๋งกัน",
-                ft_desc: "พร้อมยกระดับงานภาพของคุณหรือยัง? ทักมาสอบถามรายละเอียด ประเมินราคา หรือพูดคุยกันได้เลย โปรเจกต์เล็กหรือใหญ่ ผมก็พร้อมลุย",
-                ft_dm: "ส่งข้อความ", ft_call: "โทรศัพท์", ft_scan_title: "สแกนเพื่อติดต่อ", ft_scan_desc: "สแกนคิวอาร์โค้ดเพื่อแชทผ่าน LINE โดยตรง", ft_rights: "สงวนลิขสิทธิ์"
-            }
-        };
-
-        let currentLang = localStorage.getItem('site_lang') || 'en';
-        
-        function applyLanguage(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-            const btns = document.querySelectorAll('.lang-btn');
-            btns.forEach(btn => {
-                if (lang === 'th') {
-                    btn.classList.add('border-accent', 'text-white');
-                } else {
-                    btn.classList.remove('border-accent');
-                }
-            });
-        }
-
-        function toggleLang() {
-            currentLang = currentLang === 'en' ? 'th' : 'en';
-            localStorage.setItem('site_lang', currentLang);
-            applyLanguage(currentLang);
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            applyLanguage(currentLang);
-        });
-    </script>
-</body>
-</html>
+<section id="contact" class="wrap contact-section"><p class="eyebrow">04 / NEXT STORY, TOGETHER</p><div class="contact-layout"><div><h2>LET’S MAKE<br><span class="accent">IT HAPPEN.</span></h2><p data-i18n="contact_desc">มีเรื่องราวที่อยากเล่า หรือโปรเจกต์ที่อยากเริ่ม?<br>ส่งไอเดียมา แล้วมาสร้างผลงานด้วยกัน</p><a class="pill primary" href="https://www.instagram.com/zomebxyz/" target="_blank" rel="noopener noreferrer">DM @ZOMEBXYZ ↗</a><div class="contact-details"><a href="tel:+66652746176">065-274-6176 ↗</a><span>LINE / @Aot.exe</span><a href="https://www.youtube.com/@somebxyz" target="_blank" rel="noopener noreferrer">YOUTUBE ↗</a></div></div><figure class="qr-card"><img src="S__7364610.jpg" loading="lazy" alt="LINE QR code for contacting ZOMEBXYZ"><figcaption data-i18n="ft_scan_desc">สแกนคิวอาร์โค้ดเพื่อแชทผ่าน LINE โดยตรง</figcaption></figure></div></section>
+</main><footer class="wrap site-footer"><a href="#home">ZOMEBXYZ.</a><span>© 2026 / GOOD SHOT. BETTER STORY.</span><a href="#home">BACK TO TOP ↑</a></footer>
+<dialog id="viewer" aria-labelledby="viewer-title"><div class="viewer-shell"><div class="viewer-toolbar"><h2 id="viewer-title"></h2><button id="close-viewer" aria-label="ปิด / Close">✕</button></div><div id="viewer-content"></div><div class="viewer-bottom"><button id="previous" aria-label="ก่อนหน้า / Previous">←</button><span id="viewer-count"></span><a id="external-video" target="_blank" rel="noopener noreferrer" data-i18n="open_video">เปิดวิดีโอต้นฉบับ ↗</a><button id="next" aria-label="ถัดไป / Next">→</button></div></div></dialog>
+<script src="app.js"></script><script src="interactions.js"></script></body></html>
