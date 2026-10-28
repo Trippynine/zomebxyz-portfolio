@@ -48,13 +48,14 @@ photos.forEach((src,i)=>{
 const viewer=document.getElementById('viewer'),content=document.getElementById('viewer-content'),external=document.getElementById('external-video');
 let currentType='photo',currentIndex=0,opener=null;
 function renderViewer(){
+  content.querySelectorAll('video').forEach(video=>{video.pause();video.removeAttribute('src');video.load();});
+  viewer.classList.remove('cinema');
   content.replaceChildren();const isVideo=currentType==='video';external.hidden=!isVideo;
   document.getElementById('viewer-title').textContent=isVideo?videos[currentIndex].title:`FRAME ${String(currentIndex+1).padStart(2,'0')}`;
   document.getElementById('viewer-count').textContent=`${currentIndex+1} / ${isVideo?videos.length:photos.length}`;
   if(isVideo){
     const film=videos[currentIndex];
-    if(film.id){const iframe=document.createElement('iframe');iframe.title=`${film.title} — Google Drive player`;iframe.src=`https://drive.google.com/file/d/${film.id}/preview`;iframe.allow='autoplay; fullscreen; picture-in-picture';iframe.allowFullscreen=true;content.append(iframe);external.href=`https://drive.google.com/file/d/${film.id}/view`;}
-    else{const video=document.createElement('video');video.src=film.url;video.controls=true;video.playsInline=true;video.preload='metadata';content.append(video);external.href=film.url;}
+    content.append(createVideoPlayer(film));external.href=film.id?`https://drive.google.com/file/d/${film.id}/view`:film.url;
   }else{const img=document.createElement('img');img.src=photos[currentIndex];img.alt=`ZOMEBXYZ photograph ${currentIndex+1}`;content.append(img);}
 }
 let closingViewer=false;
@@ -77,7 +78,7 @@ document.getElementById('previous').addEventListener('click',()=>step(-1));docum
 document.getElementById('close-viewer').addEventListener('click',closeViewer);
 viewer.addEventListener('cancel',e=>{e.preventDefault();closeViewer();});
 viewer.addEventListener('click',e=>{if(e.target===viewer){const r=viewer.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeViewer();}});
-viewer.addEventListener('close',()=>{content.replaceChildren();closingViewer=false;viewer.classList.remove('is-closing');document.body.classList.remove('viewer-open');opener?.focus();});
+viewer.addEventListener('close',()=>{content.querySelectorAll('video').forEach(video=>{video.pause();video.removeAttribute('src');video.load();});content.replaceChildren();closingViewer=false;viewer.classList.remove('is-closing','cinema');document.body.classList.remove('viewer-open');opener?.focus();});
 viewer.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1);}if(e.key==='ArrowLeft'){e.preventDefault();step(-1);}});
 let touchStart=null;
 content.addEventListener('touchstart',e=>{if(currentType==='photo')touchStart=e.changedTouches[0].clientX;},{passive:true});
