@@ -12,6 +12,8 @@ Object.assign(translations.en, {
   about_desc:'I’m ZOMEBXYZ, a freelance videographer and editor finding new angles in automotive, lifestyle, and social content. From the shoot to the edit, color, and sound, I bring each story together in its own way.',
   contact_desc:'A story to tell? A project in mind? Send your ideas and let’s make something together.',open_video:'Open original video ↗'
 });
+Object.assign(translations.th,{filter_all:'ทั้งหมด',category_automotive:'Automotive',category_editing:'Editing & Motion',automotive_desc:'รถยนต์ งานมีตติ้ง ล้อแม็ก และเบื้องหลังการผลิต — เรื่องราวของโลกยานยนต์',editing_desc:'งานตัดต่อ Before & After และ Motion Graphics สำหรับคอนเทนต์และโปรโมตเพลง',filter_label:'เลือกหมวดผลงาน',category_work:'ผลงาน',work_desc:'เลือกชมตามหมวดหมู่ หรือดูผลงานทั้งหมด — แตะการ์ดเพื่อเล่นวิดีโอ',new_release:'ผลงานใหม่'});
+Object.assign(translations.en,{filter_all:'All work',category_automotive:'Automotive',category_editing:'Editing & Motion',automotive_desc:'Car meets, wheel films, workshops and the craft behind automotive stories.',editing_desc:'Before-and-after edits and motion graphics for content and music promotion.',filter_label:'Filter selected work',category_work:'films',work_desc:'Explore a category or browse the full collection. Tap a film to watch.',new_release:'NEW RELEASE'});
 let language='th';
 try {const saved=localStorage.getItem('site_lang');if(saved==='en'||saved==='th')language=saved;} catch {}
 function applyLanguage(){
@@ -26,20 +28,45 @@ menu.addEventListener('click',()=>{const open=navigation.classList.toggle('open'
 navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 const grid=document.getElementById('video-grid');
-videos.forEach((film,i)=>{
+const categories=[{id:'automotive',key:'category_automotive',description:'automotive_desc',number:'01'},{id:'editing-motion',key:'category_editing',description:'editing_desc',number:'02'}];
+let activeCategory='all';
+let videoOrder=[];
+const filters=document.createElement('div');filters.className='work-filters';filters.setAttribute('role','group');filters.setAttribute('aria-label','เลือกหมวดผลงาน / Filter selected work');
+[{id:'all',key:'filter_all'},...categories].forEach(category=>{
+  const button=document.createElement('button');button.type='button';button.dataset.category=category.id;button.setAttribute('aria-controls','video-grid');button.setAttribute('aria-pressed',String(category.id==='all'));
+  const count=category.id==='all'?videos.length:videos.filter(film=>film.category===category.id).length;
+  button.innerHTML=`<span data-i18n="${category.key}">${translations[language][category.key]}</span><small>${String(count).padStart(2,'0')}</small>`;
+  button.addEventListener('click',()=>setVideoCategory(category.id));filters.append(button);
+});
+grid.before(filters);grid.className='video-categories';
+categories.forEach(category=>{
+  const group=document.createElement('section');group.className='video-category';group.dataset.category=category.id;group.setAttribute('aria-labelledby',`category-${category.id}`);
+  const indices=videos.map((film,index)=>index).filter(index=>videos[index].category===category.id).sort((a,b)=>Number(!!videos[b].new)-Number(!!videos[a].new)||a-b);
+  const header=document.createElement('div');header.className='category-heading';header.innerHTML=`<div><span class="eyebrow">${category.number} / COLLECTION</span><h3 id="category-${category.id}" data-i18n="${category.key}">${translations[language][category.key]}</h3><p data-i18n="${category.description}">${translations[language][category.description]}</p></div><span class="category-total">${String(indices.length).padStart(2,'0')} <span data-i18n="category_work">${translations[language].category_work}</span></span>`;
+  const filmsGrid=document.createElement('div');filmsGrid.className='video-grid';
+  indices.forEach(i=>{const film=videos[i];
   const button=document.createElement('button');button.className='film-card';button.type='button';
   button.setAttribute('aria-label',`Play ${film.title}`);
   const cover=document.createElement('div');cover.className='film-cover';
-  if(film.id){
-    const img=document.createElement('img');img.src=`https://drive.google.com/thumbnail?id=${encodeURIComponent(film.id)}&sz=w1000`;img.alt='';img.loading='lazy';
+  if(film.poster||film.id){
+    const img=document.createElement('img');img.src=film.poster||`https://drive.google.com/thumbnail?id=${encodeURIComponent(film.id)}&sz=w1000`;img.alt='';img.loading='lazy';
     // Use an honest graphic fallback instead of unrelated work when Drive hides the thumbnail.
     img.addEventListener('error',()=>img.remove());cover.append(img);
   }
-  cover.insertAdjacentHTML('beforeend',`<span class="play-icon" aria-hidden="true">▶</span><span class="film-number">ZOMEBXYZ / ${String(i+1).padStart(2,'0')}</span>${film.new?'<span class="new-tag">NEW RELEASE</span>':''}`);
+  cover.insertAdjacentHTML('beforeend',`<span class="play-icon" aria-hidden="true">▶</span><span class="film-number">ZOMEBXYZ / ${String(i+1).padStart(2,'0')}</span>${film.new?`<span class="new-tag" data-i18n="new_release">${translations[language].new_release}</span>`:''}`);
   button.append(cover);const meta=document.createElement('div');meta.className='film-meta';
-  meta.innerHTML=`<span>${film.title} ↗</span><small>${film.id?'GOOGLE DRIVE':'VIDEO'} / PLAY</small>`;button.append(meta);
-  button.addEventListener('click',()=>openViewer('video',i));grid.append(button);
+  meta.innerHTML=`<span>${film.title} ↗</span><small>PLAY FILM</small>`;button.append(meta);
+  button.addEventListener('click',()=>openViewer('video',i));filmsGrid.append(button);
+  });
+  group.append(header,filmsGrid);grid.append(group);
 });
+function setVideoCategory(category){
+  activeCategory=category;
+  filters.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.category===category)));
+  grid.querySelectorAll('.video-category').forEach(group=>{group.hidden=category!=='all'&&group.dataset.category!==category;});
+  videoOrder=categories.filter(group=>category==='all'||group.id===category).flatMap(group=>videos.map((film,index)=>index).filter(index=>videos[index].category===group.id).sort((a,b)=>Number(!!videos[b].new)-Number(!!videos[a].new)||a-b));
+}
+setVideoCategory('all');
 photos.forEach((src,i)=>{
   const button=document.createElement('button');button.type='button';button.className='photo-card';button.setAttribute('aria-label',`View photograph ${i+1}`);
   const img=document.createElement('img');img.src=src;img.alt=`ZOMEBXYZ photography — frame ${String(i+1).padStart(2,'0')}`;img.loading='lazy';
@@ -52,7 +79,7 @@ function renderViewer(){
   viewer.classList.remove('cinema');
   content.replaceChildren();const isVideo=currentType==='video';external.hidden=!isVideo;
   document.getElementById('viewer-title').textContent=isVideo?videos[currentIndex].title:`FRAME ${String(currentIndex+1).padStart(2,'0')}`;
-  document.getElementById('viewer-count').textContent=`${currentIndex+1} / ${isVideo?videos.length:photos.length}`;
+  document.getElementById('viewer-count').textContent=`${isVideo?videoOrder.indexOf(currentIndex)+1:currentIndex+1} / ${isVideo?videoOrder.length:photos.length}`;
   if(isVideo){
     const film=videos[currentIndex];
     content.append(createVideoPlayer(film));external.href=film.id?`https://drive.google.com/file/d/${film.id}/view`:film.url;
@@ -73,7 +100,7 @@ function closeViewer(){
   // Keep the native dialog in the top layer until its exit transition completes.
   window.setTimeout(()=>{if(viewer.open)viewer.close();},180);
 }
-function step(direction){const count=currentType==='video'?videos.length:photos.length;currentIndex=(currentIndex+direction+count)%count;renderViewer();}
+function step(direction){if(currentType==='video'){const position=videoOrder.indexOf(currentIndex);currentIndex=videoOrder[(position+direction+videoOrder.length)%videoOrder.length];}else{currentIndex=(currentIndex+direction+photos.length)%photos.length;}renderViewer();}
 document.getElementById('previous').addEventListener('click',()=>step(-1));document.getElementById('next').addEventListener('click',()=>step(1));
 document.getElementById('close-viewer').addEventListener('click',closeViewer);
 viewer.addEventListener('cancel',e=>{e.preventDefault();closeViewer();});

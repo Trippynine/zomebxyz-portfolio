@@ -17,9 +17,9 @@ The hero now uses the user-selected `assets/portrait-cutout-hires.png` (1077 × 
 
 Add a film to `videos` in `app.js` using `{id: 'FILE_ID', src: 'assets/video/film-10.mp4', title: 'Project name', new: true}`. Keep the original accessible to the intended visitors in Drive. Use `prepare-web-videos.py` (offline dependency: `imageio-ffmpeg`) to prepare web copies, then set each `src` to its matching output. The page uses Drive thumbnails and offers an original-file link. If a thumbnail cannot load, a graphic play card remains available.
 
-All nine films now have local H.264/AAC MP4 copies under `assets/video/`, capped at 960 px on the longer edge and 30 fps, with fast-start metadata for streaming. The original files and original links are retained. This avoids the iOS/Drive embedded player's large native overlay. The inline `<video playsinline>` has no native `controls`; play/pause, seek, ±10 seconds, mute, speed and expand buttons occupy a separate row below the picture. Expand enlarges the website dialog rather than invoking iOS's native fullscreen video UI. Closing or changing films explicitly pauses and unloads the previous source. Static hosting must serve MP4 byte-range requests for reliable seeking; GitHub Pages supports this.
+All eleven films now have local H.264/AAC MP4 copies under `assets/video/`, capped at 960 px on the longer edge and 30 fps, with fast-start metadata for streaming. The original files and original links are retained. This avoids the iOS/Drive embedded player's large native overlay. The inline `<video playsinline>` has no native `controls`; play/pause, seek, ±10 seconds, mute, speed and expand buttons occupy a separate row below the picture. Expand enlarges the website dialog rather than invoking iOS's native fullscreen video UI. Closing or changing films explicitly pauses and unloads the previous source. Static hosting must serve MP4 byte-range requests for reliable seeking; GitHub Pages supports this.
 
-Video titles currently use neutral `Film 01`–`Film 09` labels pending project names. The two supplied Drive links appear first. Add gallery image paths to `photos` in `app.js`. The site does not change original-provider permissions; web playback copies are published with the portfolio.
+Cards use descriptive working titles based on the footage. The two newest supplied Drive films appear first within their categories. Add gallery image paths to `photos` in `app.js`. The site does not change original-provider permissions; web playback copies are published with the portfolio.
 
 Language preference uses browser local storage and falls back gracefully if storage is unavailable. The site has no authentication or backend. Google Fonts, Font Awesome, Tailwind CDN, and remote video services require internet access.
 
@@ -30,7 +30,13 @@ Language preference uses browser local storage and falls back gracefully if stor
 - Mobile menu opens and closes on navigation; Thai/English switch updates page language.
 - Landscape Film 01 and portrait Film 02 play in the custom player at mobile viewport size. Verified advancing playback time, seek, mute and playback speed using a byte-range-enabled local server. Physical iOS/Messenger testing remains to be checked.
 - Photo viewer opens and advances; Escape closes and removes embedded players. Dialog focus returns to its opener.
-- Nine video cards and twelve photographs remain available. No Google Drive iframe is used; video sources load on opening a film.
+- Eleven video cards and twelve photographs remain available. No Google Drive iframe is used; video sources load on opening a film.
 - Local images load and browser console reports no errors during the checked flow.
 
 The updated portfolio replaces the original root `index.html` and remains compatible with static hosting such as GitHub Pages. Publish the repository root from `main` using the repository's existing hosting configuration.
+
+## Video categories
+
+The collection contains Automotive (9 films) and Editing & Motion (2 films). Filter buttons show counts, selected state, and only the matching collection. New releases sort first within each category. The media viewer follows the visible category order, including next/previous wrap-around and its item counter. Category descriptions and filters support Thai/English. Local poster frames in assets/posters/ load without Drive thumbnail access. Add category and poster fields when adding a film.
+
+Verified the two new films (Night Meet: 103.02 seconds; Motion Promo: 47.658 seconds) play with controls below the picture. Also checked category filtering, two-item wrap-around, language switching and mobile layout at 390 px.
