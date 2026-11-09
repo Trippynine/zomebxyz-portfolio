@@ -29,7 +29,14 @@ navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 const grid=document.getElementById('video-grid');
 const categories=[{id:'automotive',key:'category_automotive',description:'automotive_desc',number:'01'},{id:'editing-motion',key:'category_editing',description:'editing_desc',number:'02'}];
-let activeCategory='all';
+const featuredIndex=videos.findIndex(film=>film.featured);
+const featuredFilm=videos[featuredIndex];
+const categoryOrder=new Map(categories.map(({id})=>[id,videos
+  .map((film,index)=>index)
+  .filter(index=>videos[index].category===id&&index!==featuredIndex)
+  .sort((a,b)=>Number(!!videos[b].new)-Number(!!videos[a].new)||a-b)]));
+Object.assign(translations.th,{featured_label:'คลิปโปรโมตใหม่',featured_desc:'รู้จักงานของผมใน 41 วินาที ตั้งแต่ถ่ายรถยนต์และอีเวนต์ ไปจนถึงตัดต่อและ Motion Graphics',featured_play:'ชมคลิปโปรโมต'});
+Object.assign(translations.en,{featured_label:'NEW PROMO',featured_desc:'Get to know my work in 41 seconds, from automotive and event videography to editing and motion graphics.',featured_play:'Watch the promo'});
 let videoOrder=[];
 const filters=document.createElement('div');filters.className='work-filters';filters.setAttribute('role','group');filters.setAttribute('aria-label','เลือกหมวดผลงาน / Filter selected work');
 [{id:'all',key:'filter_all'},...categories].forEach(category=>{
@@ -39,10 +46,30 @@ const filters=document.createElement('div');filters.className='work-filters';fil
   button.addEventListener('click',()=>setVideoCategory(category.id));filters.append(button);
 });
 grid.before(filters);grid.className='video-categories';
+let featuredCard;
+if(featuredFilm){
+  featuredCard=document.createElement('button');
+  featuredCard.type='button';
+  featuredCard.className='featured-film';
+  featuredCard.innerHTML=`
+    <span class="featured-copy">
+      <span class="featured-badge" data-i18n="featured_label"></span>
+      <span class="featured-title">ZOMEBXYZ <span>PROMO</span></span>
+      <span class="featured-description" data-i18n="featured_desc"></span>
+      <span class="featured-action"><span aria-hidden="true">▶</span> <span data-i18n="featured_play"></span></span>
+    </span>
+    <span class="featured-poster">
+      <img src="${featuredFilm.poster}" width="540" height="960" loading="lazy" alt="">
+      <span class="featured-duration" aria-hidden="true">0:41</span>
+    </span>`;
+  featuredCard.addEventListener('click',()=>openViewer('video',featuredIndex));
+  grid.append(featuredCard);
+}
 categories.forEach(category=>{
   const group=document.createElement('section');group.className='video-category';group.dataset.category=category.id;group.setAttribute('aria-labelledby',`category-${category.id}`);
-  const indices=videos.map((film,index)=>index).filter(index=>videos[index].category===category.id).sort((a,b)=>Number(!!videos[b].new)-Number(!!videos[a].new)||a-b);
-  const header=document.createElement('div');header.className='category-heading';header.innerHTML=`<div><span class="eyebrow">${category.number} / COLLECTION</span><h3 id="category-${category.id}" data-i18n="${category.key}">${translations[language][category.key]}</h3><p data-i18n="${category.description}">${translations[language][category.description]}</p></div><span class="category-total">${String(indices.length).padStart(2,'0')} <span data-i18n="category_work">${translations[language].category_work}</span></span>`;
+  const indices=categoryOrder.get(category.id);
+  const categoryCount=indices.length+Number(featuredFilm?.category===category.id);
+  const header=document.createElement('div');header.className='category-heading';header.innerHTML=`<div><span class="eyebrow">${category.number} / COLLECTION</span><h3 id="category-${category.id}" data-i18n="${category.key}">${translations[language][category.key]}</h3><p data-i18n="${category.description}">${translations[language][category.description]}</p></div><span class="category-total">${String(categoryCount).padStart(2,'0')} <span data-i18n="category_work">${translations[language].category_work}</span></span>`;
   const filmsGrid=document.createElement('div');filmsGrid.className='video-grid';
   indices.forEach(i=>{const film=videos[i];
   const button=document.createElement('button');button.className='film-card';button.type='button';
@@ -61,10 +88,12 @@ categories.forEach(category=>{
   group.append(header,filmsGrid);grid.append(group);
 });
 function setVideoCategory(category){
-  activeCategory=category;
+  const showFeatured=featuredFilm&&(category==='all'||featuredFilm.category===category);
+  if(featuredCard)featuredCard.hidden=!showFeatured;
   filters.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.category===category)));
   grid.querySelectorAll('.video-category').forEach(group=>{group.hidden=category!=='all'&&group.dataset.category!==category;});
-  videoOrder=categories.filter(group=>category==='all'||group.id===category).flatMap(group=>videos.map((film,index)=>index).filter(index=>videos[index].category===group.id).sort((a,b)=>Number(!!videos[b].new)-Number(!!videos[a].new)||a-b));
+  videoOrder=categories.filter(group=>category==='all'||group.id===category).flatMap(group=>categoryOrder.get(group.id));
+  if(showFeatured)videoOrder.unshift(featuredIndex);
 }
 setVideoCategory('all');
 photos.forEach((src,i)=>{
