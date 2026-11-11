@@ -61,6 +61,14 @@ a:focus-visible { outline: 2px solid #ff9ab4; outline-offset: 5px; }
 }
 .buy-link:hover { background: #da1048; }
 .purchase-note { font-size: 13px; }
+.product-copy .product-specs { color: #ffc1d1; font-size: .95rem; }
+.product-details { margin-top: clamp(44px, 8vw, 88px); }
+.product-details h2 { margin-bottom: 18px; }
+.product-details p, .looks dd { color: #e0cbd5; line-height: 1.7; }
+.looks { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 12px; }
+.looks div { padding: 14px 16px; border: 1px solid #ffffff21; border-radius: 12px; }
+.looks dt { font-weight: 600; }
+.looks dd { margin: 5px 0 0; font-size: .9rem; }
 
 @media (max-width: 660px) {
   .product { grid-template-columns: minmax(0, 1fr); }
