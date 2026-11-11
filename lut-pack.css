@@ -1,0 +1,68 @@
+:root {
+  color-scheme: dark;
+  font-family: Prompt, system-ui, sans-serif;
+  color: #fff5f8;
+  background: #080811;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; }
+a:focus-visible { outline: 2px solid #ff9ab4; outline-offset: 5px; }
+
+.shop-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding: 20px max(6vw, 20px);
+  border-bottom: 1px solid #ffffff21;
+}
+.shop-header nav { display: flex; gap: 20px; }
+.shop-header a { text-decoration: none; padding-block: 8px; }
+.shop-brand { font-weight: 700; letter-spacing: .08em; }
+[aria-current="page"] { color: #ff91ae; }
+
+.shop-main { width: min(1100px, 90%); margin: clamp(34px, 8vw, 100px) auto; }
+.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 7vw, 92px);
+}
+.product-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 310px;
+  aspect-ratio: 1 / 1;
+  padding: clamp(22px, 4vw, 48px);
+  border: 1px solid #ff597d70;
+  border-radius: 26px;
+  background: radial-gradient(ellipse at 95% 10%, #a8184d, transparent 72%), linear-gradient(150deg, #300e24, #100a18 78%);
+  box-shadow: 0 16px 56px #ba16432b;
+}
+.product-cover span { color: #ffc1d1; font-size: 12px; letter-spacing: .16em; }
+.product-cover strong { font: 900 clamp(70px, 9vw, 125px)/.84 Impact, 'Arial Narrow', sans-serif; }
+.product-copy h1 { margin: 0; font: 900 clamp(38px, 6vw, 72px)/1.02 Impact, 'Arial Narrow', sans-serif; }
+.product-copy p { color: #e0cbd5; line-height: 1.8; }
+.buy-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: #c50037;
+  font-weight: 600;
+  text-decoration: none;
+}
+.buy-link:hover { background: #da1048; }
+.purchase-note { font-size: 13px; }
+
+@media (max-width: 660px) {
+  .product { grid-template-columns: minmax(0, 1fr); }
+  .product-cover { min-height: 230px; aspect-ratio: 5 / 4; }
+}
