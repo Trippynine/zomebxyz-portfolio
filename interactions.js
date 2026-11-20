@@ -28,8 +28,8 @@ menu.addEventListener('click',()=>{const open=navigation.classList.toggle('open'
 navigation.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
 const grid=document.getElementById('video-grid');
-Object.assign(translations.th,{category_event:'งานอีเวนต์',event_desc:'วิดีโอเก็บบรรยากาศและไฮไลต์จากงานอีเวนต์'});
-Object.assign(translations.en,{category_event:'Event',event_desc:'Event coverage and highlight films.'});
+Object.assign(translations.th,{category_event:'EVENT',event_desc:'วิดีโอเก็บบรรยากาศและไฮไลต์จากงานอีเวนต์'});
+Object.assign(translations.en,{category_event:'EVENT',event_desc:'Event coverage and highlight films.'});
 const categories=[{id:'automotive',key:'category_automotive',description:'automotive_desc',number:'01'},{id:'editing-motion',key:'category_editing',description:'editing_desc',number:'02'},{id:'event',key:'category_event',description:'event_desc',number:'03'}];
 const featuredIndex=videos.findIndex(film=>film.featured);
 const featuredFilm=videos[featuredIndex];
